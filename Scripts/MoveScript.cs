@@ -25,6 +25,13 @@ public class MoveScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * MoveSpeed, vertical * MoveSpeed);
+        Vector2 movement = new Vector2(horizontal, vertical);
+        rb.velocity = movement * MoveSpeed;
+        if (movement != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            float roundedAngle = Mathf.Round(angle / 45f) * 45f;
+            rb.rotation = roundedAngle-90;
+        }
     }
 }
