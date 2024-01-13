@@ -12,7 +12,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        Player = gameObject.Find("Player");
+        Player = GameObject.Find("Player");
+        target = Player.transform;
     }
 
     void Update()
