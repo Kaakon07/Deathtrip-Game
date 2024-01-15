@@ -9,25 +9,41 @@ public class EnemyController : MonoBehaviour
     private float minDistance = 1f;
     private float range;
     private GameObject Player;
+    public Collider2D enemyCollider;
+    public Collider2D playerCollider;
+    public ValueScript HealthScript;
+    public float damage = 20f;
+    
+
 
     private void Start()
     {
         Player = GameObject.Find("Player");
-        target = Player.transform;  
+        target = Player.transform;
+        playerCollider = Player.GetComponent<Collider2D>();
+        enemyCollider = GetComponent<Collider2D>();
+        HealthScript = GetComponent<ValueScript>();
     }
 
     void Update()
     {
 
+        dealDamage(damage);
         
 
         range = Vector2.Distance(transform.position, target.position);
 
         if (range > minDistance)
         {
-            Debug.Log(range);
-
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+    }
+
+    private void dealDamage(float damage)
+    {
+        if (enemyCollider.IsTouching(playerCollider))
+        {
+            HealthScript.currentHealth -= damage;
         }
     }
 }
