@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
 
-        dealDamage(damage);
+        enemyDamage(damage);
         
 
         range = Vector2.Distance(transform.position, target.position);
@@ -39,11 +39,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void dealDamage(float damage)
+    private void enemyDamage(float damage)
     {
         if (enemyCollider.IsTouching(playerCollider))
         {
-            HealthScript.currentHealth -= damage;
+            HealthScript.dealDamage(damage);
         }
     }
 }

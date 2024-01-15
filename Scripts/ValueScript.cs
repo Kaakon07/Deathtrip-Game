@@ -20,4 +20,9 @@ public class ValueScript : MonoBehaviour
     {
         healthBar.SetHealth(currentHealth);  
     }
+
+    public void dealDamage(float dmg)
+    {
+        currentHealth -= dmg;
+    }
 }
