@@ -2,33 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 public class EnemyController : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     public float speed = 2f;
     private float minDistance = 1f;
     private float range;
     private GameObject Player;
-    public Collider2D enemyCollider;
-    public Collider2D playerCollider;
-    public ValueScript HealthScript;
+    private Collider2D enemyCollider;
+    private Collider2D playerCollider;
+    private ValueScript HealthScript;
     public float damage = 20f;
+    private Rigidbody2D rb;
+    public float health = 20f;
     
 
 
-    private void Start()
+    void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
         target = Player.transform;
         playerCollider = Player.GetComponent<Collider2D>();
         enemyCollider = GetComponent<Collider2D>();
-        HealthScript = GetComponent<ValueScript>();
+        HealthScript = Player.GetComponent<ValueScript>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-
-        enemyDamage(damage);
+        if (enemyCollider.IsTouching(playerCollider))
+        {
+            HealthScript.dealDamage(damage);
+            rb.AddForce(rb.velocity*-1);
+            
+        }
+        
         
 
         range = Vector2.Distance(transform.position, target.position);
@@ -39,11 +48,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void enemyDamage(float damage)
-    {
-        if (enemyCollider.IsTouching(playerCollider))
-        {
-            HealthScript.dealDamage(damage);
-        }
-    }
+
+
 }
