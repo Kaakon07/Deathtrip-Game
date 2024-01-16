@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     private Transform target;
     public float speed = 2f;
-    private float minDistance = 1f;
+    private float minDistance = 0f;
     private float range;
     private GameObject Player;
     private Collider2D enemyCollider;
@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public float damage = 20f;
     private Rigidbody2D rb;
     public float health = 20f;
+
     
 
 
