@@ -29,11 +29,11 @@ public class ValueScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        maxExp = 100 * Mathf.Pow(2, Level / 8);
         healthBar.SetHealth(currentHealth);
         xpBar.SetXP(currentExp);
         endGame();
         levelUp();
-        maxExp = 100 * Mathf.Pow(2, Level / 8);
     }
 
     public void dealDamage(float dmg)
