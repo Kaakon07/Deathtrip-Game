@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class ValueScript : MonoBehaviour
 {
     public float maxHealth = 100;
@@ -20,7 +21,7 @@ public class ValueScript : MonoBehaviour
         Level = 1;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        maxExp = 100 * Mathf.Pow(2,Level/8);
+        maxExp = Mathf.Round(100 * Mathf.Pow(2,Level/8));
         currentExp = 0;
         xpBar.SetMaxXp(maxExp);
     }

@@ -11,12 +11,12 @@ public class LevelTextScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.text = "level " + script.Level.ToString();
+        text.text = "Level " + script.Level.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "level " + script.Level.ToString();
+        text.text = "Level " + script.Level.ToString();
     }
 }
