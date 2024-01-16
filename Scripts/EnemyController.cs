@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public float damage = 20f;
     private Rigidbody2D rb;
     public float health = 20f;
+    public GameObject XpOrb;
 
     
 
@@ -38,6 +39,14 @@ public class EnemyController : MonoBehaviour
             rb.AddForce(rb.velocity*-1);
             
         }
+
+        if (health < 1)
+        {
+            Instantiate(XpOrb, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+
+
         
         
 
