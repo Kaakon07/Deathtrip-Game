@@ -14,6 +14,7 @@ public class ValueScript : MonoBehaviour
     public HealthBarScript healthBar;
     public GameController gameController;
     public XPbarScript xpBar;
+    private bool Upgradable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class ValueScript : MonoBehaviour
         {
             currentExp -= maxExp;
             Level++;
+            Upgradable = true;
         }
     }
     
