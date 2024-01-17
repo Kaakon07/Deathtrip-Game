@@ -9,6 +9,9 @@ public class BulletDestroyer : MonoBehaviour
     private Transform bulletTransform;
     private Vector2 distanceVec;
     private float distance;
+    private ShooterScript ShootScript;
+    public float Damage = 10f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,8 @@ public class BulletDestroyer : MonoBehaviour
         Player = GameObject.Find("Player");
         playerTransform = Player.transform;
         bulletTransform = transform;
+        ShootScript = Player.GetComponent<ShooterScript>();
+
         
 
     }
@@ -23,6 +28,7 @@ public class BulletDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         distanceVec = bulletTransform.position - playerTransform.position;
         distance = distanceVec.magnitude;
 

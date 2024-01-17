@@ -40,6 +40,8 @@ public class EnemyController : MonoBehaviour
             
         }
 
+        if ()
+
         if (health < 1)
         {
             Instantiate(XpOrb, transform.position, transform.rotation);
@@ -56,6 +58,11 @@ public class EnemyController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+    }
+
+    public void EnemyDamage(float dmg)
+    {
+        health = -dmg;
     }
 
 
