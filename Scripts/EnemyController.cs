@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
 
         
 
-        if (health < 1)
+        if (health <= 0)
         {
             Instantiate(XpOrb, transform.position, transform.rotation);
             Destroy(gameObject);
@@ -60,9 +60,36 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            BulletScript bulletScript = collision.gameObject.GetComponent<BulletScript>();
+            if (bulletScript.dealtDmg == false)
+            {
+                EnemyDamage(bulletScript.Damage);
+                
+            }
+            bulletScript.dealtDmg = true;
+            if (bulletScript.pierce > 0 )
+            {
+                //
+            }
+            else if (bulletScript.bounce > 0)
+            {
+                //
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
+            
+        }
+    }
+
     public void EnemyDamage(float dmg)
     {
-        health = -dmg;
+        health -= dmg;
     }
 
 
