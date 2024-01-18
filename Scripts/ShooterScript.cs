@@ -11,7 +11,6 @@ public class ShooterScript : MonoBehaviour
     private float timer;
     public float FireSpeed = 10f;
     public float BulletSpeed = 50f;
-    private int resolution;
     private int screenHeight;
     private int screenWidth;
     private Vector3 screenRes;
@@ -30,11 +29,12 @@ public class ShooterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookDirection = Camera.main.WorldToScreenPoint(Input.mousePosition-screenRes*0.5f);
-        lookDirection = new Vector2(lookDirection.x - transform.position.x, lookDirection.y - transform.position.y);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        lookDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
+        
 
 
     }

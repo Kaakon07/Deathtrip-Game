@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
             
         }
 
-        if ()
+        
 
         if (health < 1)
         {
