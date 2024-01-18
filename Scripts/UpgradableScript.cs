@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class UpgradableScript : MonoBehaviour
 {
-
+    public void StatUpgrade(float stat, float newStat)
+    {
+        stat += newStat;
+    }
 
     public void ShowUpgrade()
     {

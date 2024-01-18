@@ -16,10 +16,7 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShootScript = Player.GetComponent<ShooterScript>();
         
-        
-
     }
 
     // Update is called once per frame
