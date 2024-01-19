@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UpgradableScript : MonoBehaviour
 {
+    public BulletScript bulletScript;
+    public ValueScript valueScript;
+
     public void StatUpgrade(float stat, float newStat)
     {
         stat += newStat;

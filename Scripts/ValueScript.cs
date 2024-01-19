@@ -31,6 +31,7 @@ public class ValueScript : MonoBehaviour
     void Update()
     {
         maxExp = 100 * Mathf.Pow(2, Level / 8);
+        xpBar.SetMaxXp(maxExp);
         healthBar.SetHealth(currentHealth);
         xpBar.SetXP(currentExp);
         endGame();
