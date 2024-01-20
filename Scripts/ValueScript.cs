@@ -15,6 +15,9 @@ public class ValueScript : MonoBehaviour
     public GameController gameController;
     public XPbarScript xpBar;
     public UpgradableScript upgradableScript;
+    public List<UpgradeData> Upgrades;
+    List<UpgradeData> selectedUpgrades;
+    [SerializeField] List<UpgradeData> acquiredUpgrades;
 
     // Start is called before the first frame update
     void Start()
@@ -45,12 +48,30 @@ public class ValueScript : MonoBehaviour
 
     public void levelUp()
     {
+
+
         if(currentExp > maxExp-1)
         {
+            if (selectedUpgrades == null)
+            {
+                selectedUpgrades = new List<UpgradeData>();
+            }
+            selectedUpgrades.Clear();
+            selectedUpgrades.AddRange(GetUpgrade(3));
+
             currentExp -= maxExp;
             Level++;
-            upgradableScript.ShowUpgrade();
+            upgradableScript.ShowUpgrade(selectedUpgrades);
         }
+    }
+
+    public void Upgrade(int selectedUpgradeID)
+    {
+        UpgradeData upgradeData = selectedUpgrades[selectedUpgradeID];
+        if (acquiredUpgrades == null) { acquiredUpgrades = new List<UpgradeData>(); }
+
+        acquiredUpgrades.Add(upgradeData);
+        Upgrades.Remove(upgradeData);
     }
     
     public void GiveXp(float xp)
@@ -64,5 +85,22 @@ public class ValueScript : MonoBehaviour
         {
             gameController.GameOver();
         }
+    }
+    public List<UpgradeData> GetUpgrade(int count)
+    {
+        List<UpgradeData> upgradeList = new List<UpgradeData>();
+
+        if (count > Upgrades.Count)
+        {
+            count = Upgrades.Count;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            upgradeList.Add(Upgrades[Random.Range(0, Upgrades.Count)]);
+        }
+        
+
+        return upgradeList;
     }
 }
