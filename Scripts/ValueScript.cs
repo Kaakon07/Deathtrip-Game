@@ -72,6 +72,7 @@ public class ValueScript : MonoBehaviour
 
         acquiredUpgrades.Add(upgradeData);
         Upgrades.Remove(upgradeData);
+            
     }
     
     public void GiveXp(float xp)

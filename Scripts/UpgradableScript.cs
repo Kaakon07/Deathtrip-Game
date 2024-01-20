@@ -10,10 +10,6 @@ public class UpgradableScript : MonoBehaviour
     public GameObject player;
     public List<UpgradeButton> upgradeButton;
 
-    private void Start()
-    {
-        HideText();
-    }
     public void StatUpgrade(float stat, float newStat)
     {
         stat += newStat;
@@ -30,11 +26,6 @@ public class UpgradableScript : MonoBehaviour
             upgradeButton[i].SetText(upgradeData[i]);
         }
 
-        for (int i = 0; i < upgradeButton.Count; i++)
-        
-        {
-            upgradeButton[i].gameObject.SetActive(true);
-        }
 
 
     }
@@ -53,19 +44,12 @@ public class UpgradableScript : MonoBehaviour
     }
     public void HideUpgrade()
     {
-        HideText();
+
         gameObject.SetActive(false);
         Time.timeScale = 1;
 
 
     }
 
-    private void HideText()
-    {
-        for (int i = 0; i < upgradeButton.Count; i++)
 
-        {
-            upgradeButton[i].gameObject.SetActive(false);
-        }
-    }
 }
