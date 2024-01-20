@@ -25,16 +25,18 @@ public class UpgradableScript : MonoBehaviour
         gameObject.SetActive(true);
         Time.timeScale = 0;
 
+        for (int i = 0; i < upgradeData.Count; i++)
+        {
+            upgradeButton[i].SetText(upgradeData[i]);
+        }
+
         for (int i = 0; i < upgradeButton.Count; i++)
         
         {
             upgradeButton[i].gameObject.SetActive(true);
         }
 
-        for(int i=0; i <upgradeData.Count;i++) 
-        {
-            upgradeButton[i].SetText(upgradeData[i]);
-        }
+
     }
 
     public void Clean()
