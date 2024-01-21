@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Lager en enum med navnet upgradeType
 public enum UpgradeType
 {
     BulletUpgrade,

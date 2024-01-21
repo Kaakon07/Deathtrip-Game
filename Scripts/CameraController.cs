@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
+    // får et objekt til å følge spilleren
     public Transform player;
 
     // Update is called once per frame

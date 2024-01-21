@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    // referanser til spiller objektet og skyte skripten
     private GameObject Player;
     private ShooterScript ShootScript;
+
+    // Stats
     public float Damage;
     public float range;
     public int pierce;
     public int bounce;
+
+    // om den har gjort skade eller ikke
     public bool dealtDmg = false;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

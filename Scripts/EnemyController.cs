@@ -5,17 +5,25 @@ using UnityEngine.UI;
 using System.Threading;
 public class EnemyController : MonoBehaviour
 {
-    private Transform target;
+
+    // stats
     public float speed = 2f;
+
+    // hvor nerme fienden må være
     private float minDistance = 0f;
     private float range;
+
+    // mer stats
+    public float health = 20f;
+    public float damage = 20f;
+
+    // referanser
     private GameObject Player;
     private Collider2D enemyCollider;
     private Collider2D playerCollider;
     private ValueScript HealthScript;
-    public float damage = 20f;
+    private Transform target;
     private Rigidbody2D rb;
-    public float health = 20f;
     public GameObject XpOrb;
 
     
@@ -23,6 +31,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        // definerer referanser, fordi det er en prefab
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
         target = Player.transform;
@@ -33,15 +42,15 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // hvis fienden rører spilleren, gjør den skade på spilleren
         if (enemyCollider.IsTouching(playerCollider))
         {
             HealthScript.dealDamage(damage);
-            rb.AddForce(rb.velocity*-1);
             
         }
 
         
-
+        // hvis fiended har helse av 0 eller mindre, forsvinner den og lager en XP orb
         if (health <= 0)
         {
             Instantiate(XpOrb, transform.position, transform.rotation);
@@ -51,7 +60,7 @@ public class EnemyController : MonoBehaviour
 
         
         
-
+        // hvor langt unna fienden stopper å følge deg
         range = Vector2.Distance(transform.position, target.position);
 
         if (range > minDistance)
@@ -62,15 +71,18 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // hvis noe med "bullet" taggen rører fiended, gjør den skade
         if (collision.gameObject.tag == "Bullet")
         {
             BulletScript bulletScript = collision.gameObject.GetComponent<BulletScript>();
+            // sjekker om den har allerede gjor skade
             if (bulletScript.dealtDmg == false)
             {
                 EnemyDamage(bulletScript.Damage);
                 
             }
             bulletScript.dealtDmg = true;
+            // sjekker om skuddet kan pierce eller bounce
             if (bulletScript.pierce > 0 )
             {
                 //
@@ -81,12 +93,14 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+                // ødelegger skuddet
                 Destroy(collision.gameObject);
             }
             
         }
     }
 
+    // gjør skade på fienden
     public void EnemyDamage(float dmg)
     {
         health -= dmg;

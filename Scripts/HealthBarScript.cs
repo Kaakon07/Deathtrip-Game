@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class HealthBarScript : MonoBehaviour
 {
+    // styer HP baren
     public Slider healthBarSlider;
 
     public void SetMaxHealth(float health)
