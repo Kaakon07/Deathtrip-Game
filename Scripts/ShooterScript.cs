@@ -17,7 +17,7 @@ public class ShooterScript : MonoBehaviour
 
     // stats
     public float FireSpeed = 10f;
-    public float BulletSpeed = 50f;
+    public float BulletSpeed = 750f;
 
 
     // Start is called before the first frame update
