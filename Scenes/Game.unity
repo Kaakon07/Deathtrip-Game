@@ -2642,6 +2642,7 @@ MonoBehaviour:
   gameController: {fileID: 1624072379}
   xpBar: {fileID: 1569740779}
   upgradableScript: {fileID: 432244147}
+  hpText: {fileID: 0}
   Upgrades:
   - {fileID: 11400000, guid: 6431fe16335c60c48a8a9cac864d00ad, type: 2}
   - {fileID: 11400000, guid: b23b2ad5f13d1ef41b31268b841343f2, type: 2}
@@ -2816,7 +2817,7 @@ MonoBehaviour:
   bullet: {fileID: 8485965055817434026, guid: 101afbb7faa634c47be848d01e88b8b0, type: 3}
   firePoint: {fileID: 528024348}
   FireSpeed: 60
-  BulletSpeed: 25
+  BulletSpeed: 625
 --- !u!1 &1284882703
 GameObject:
   m_ObjectHideFlags: 0
