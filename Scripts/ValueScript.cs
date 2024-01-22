@@ -85,7 +85,7 @@ public class ValueScript : MonoBehaviour
             selectedUpgrades.Clear();
 
             // Legger till oppgraderingene du kan velge ved å kalle GetUpgrade metoden, definert lenger ned
-            selectedUpgrades.AddRange(GetUpgrade(3));
+            selectedUpgrades.AddRange(GetUpgrade(4));
 
             // Lar deg beholde xp du har over max xp
             currentExp -= maxExp;
@@ -109,7 +109,11 @@ public class ValueScript : MonoBehaviour
         // Legger till oppgradering du valgte til oppgraderinger du har
         acquiredUpgrades.Add(upgradeData);
         // tar vekk oppgraderingen fra oppgraderinger du kan få
-        Upgrades.Remove(upgradeData);
+        if (upgradeData.upgradeType == UpgradeType.BulletUpgrade)
+        {
+            Upgrades.Remove(upgradeData);
+        }
+        
             
     }
     
@@ -128,7 +132,7 @@ public class ValueScript : MonoBehaviour
         }
     }
 
-    // Henter de mulige oppgraderingene, og legger det til en liste, som hete upgradeList
+    // Henter de mulige oppgraderingene, og legger det til en liste, som heter upgradeList
     public List<UpgradeData> GetUpgrade(int count)
     {
         // lager en liste

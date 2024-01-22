@@ -2526,6 +2526,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6431fe16335c60c48a8a9cac864d00ad, type: 2}
   - {fileID: 11400000, guid: b23b2ad5f13d1ef41b31268b841343f2, type: 2}
   - {fileID: 11400000, guid: 6c720139c9107104f8d62c7da3141e68, type: 2}
+  - {fileID: 11400000, guid: ed441b570665ede428f11abd7855bff6, type: 2}
   acquiredUpgrades: []
 --- !u!114 &1215105983
 MonoBehaviour:

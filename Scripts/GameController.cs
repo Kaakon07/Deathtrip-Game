@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Security.Cryptography;
 
 public class GameController : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class GameController : MonoBehaviour
     public GameOverScript GameOverScreen;
     public PauseScript PauseScreen;
 
-    // slutter spillet
+    // slutter spillet ved å kalle en funksjon
     public void GameOver()
     {
         GameOverScreen.Setup();
@@ -31,7 +30,4 @@ public class GameController : MonoBehaviour
             PauseScreen.UnPause();
         }
     }
-
-
-
 }
