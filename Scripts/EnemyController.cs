@@ -26,6 +26,10 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject XpOrb;
 
+    // Timer
+    private float timer = 0;
+    private float threshhold = 25;
+
     
 
 
@@ -43,10 +47,14 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         // hvis fienden rører spilleren, gjør den skade på spilleren
-        if (enemyCollider.IsTouching(playerCollider))
+        if (timer < threshhold)
+        {
+            timer++;
+        }
+        else if (enemyCollider.IsTouching(playerCollider))
         {
             HealthScript.dealDamage(damage);
-            
+            timer = 0;
         }
 
         

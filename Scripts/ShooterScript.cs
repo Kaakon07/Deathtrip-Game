@@ -61,7 +61,7 @@ public class ShooterScript : MonoBehaviour
             bulletClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle-90);
 
             // Får skuddet til å dra fremmover
-            bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * BulletSpeed;
+            bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * Time.deltaTime * firePoint.right;
             timer = 0;
         }
     }

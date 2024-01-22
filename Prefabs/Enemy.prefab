@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  damage: 0.2
   health: 20
+  damage: 20
   XpOrb: {fileID: 2391687498511756407, guid: 5db58995da437134284971fb32fd3c40, type: 3}
 --- !u!61 &1783317436927859846
 BoxCollider2D:

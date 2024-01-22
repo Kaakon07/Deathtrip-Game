@@ -19,6 +19,7 @@ public class ValueScript : MonoBehaviour
     public GameController gameController;
     public XPbarScript xpBar;
     public UpgradableScript upgradableScript;
+    public HpText hpText;
 
     // Initsialisering av lister, som lagrer oppgraderinger du velger, og vilke du har tatt
     public List<UpgradeData> Upgrades;
@@ -61,12 +62,16 @@ public class ValueScript : MonoBehaviour
         //Kaller en funksjon som sjekker om du er død, og om du har nokk XP til å levele opp
         endGame();
         levelUp();
+
+        // skifter HP teksten
+        hpText.text.text = hpText.ChangeCurrent(currentHealth) + "/" + hpText.ChangeMax(maxHealth);
     }
 
     // En metode som lar deg gjøre skade til spilleren
     public void dealDamage(float dmg)
     {
         currentHealth -= dmg;
+        
     }
 
     // Funksjon som sjekker om du kan levele opp, og om du kan, åpner en oppgraderings meny

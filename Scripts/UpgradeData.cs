@@ -14,4 +14,5 @@ public class UpgradeData : ScriptableObject
 {
     public UpgradeType upgradeType;
     public string Name;
+    public string statType;
 }
