@@ -40,15 +40,28 @@ public class ProceduralTilemap : MonoBehaviour
         }
     }
 
+    bool checkTileExists(Vector3 unitPosition)
+    {
+        return tilemap.GetTile(new Vector3Int( (int)Mathf.Floor(unitPosition.x * 0.25f), (int)Mathf.Floor(unitPosition.y * 0.25f) ) ) == false;
+    }
+
+    void checkChunkAndGenerate(Vector3 unitPosition)
+    {
+        if (checkTileExists(unitPosition)) // Checks if the tile the player is currently on exists or not
+        {
+            GenerateTilemap((int)Mathf.Floor(unitPosition.x * 0.03125f), (int)Mathf.Floor(unitPosition.y * 0.03125f)); // Generates a new chunk where the player is
+        }
+    }
+    
+
     // Update is called once per frame
     void Update()
     {
         playerPos = player.transform.position;
 
-        if ( tilemap.GetTile( new Vector3Int( (int)Mathf.Floor(playerPos.x / 4), (int)Mathf.Floor(playerPos.y / 4) ) ) == false ) // Checks if the tile the player is currently on exists or not
-        {
-            GenerateTilemap( (int)Mathf.Floor(playerPos.x / 32), (int)Mathf.Floor(playerPos.y / 32) ); // Generates a new chunk where the player is
-        }
+        checkChunkAndGenerate(playerPos - (new Vector3(32, 0, 0)));
+        checkChunkAndGenerate(playerPos);
+        checkChunkAndGenerate(playerPos + (new Vector3(32, 0, 0)));
 
 
     }
