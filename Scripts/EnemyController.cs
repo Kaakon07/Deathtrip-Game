@@ -93,7 +93,8 @@ public class EnemyController : MonoBehaviour
             // sjekker om skuddet kan pierce eller bounce
             if (bulletScript.pierce > 0 )
             {
-                //
+                bulletScript.dealtDmg = false;
+                bulletScript.pierce -= 1;
             }
             else if (bulletScript.bounce > 0)
             {

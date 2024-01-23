@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4603da8be5683b143b735ea6f22db4b3, type: 3}
-  m_Name: TestUpgrade2
+  m_Name: Speed Upgrade
   m_EditorClassIdentifier: 
-  upgradeType: 1
-  Name: TestUpgrade2
+  upgradeType: 0
+  Name: 
+  statType: 
