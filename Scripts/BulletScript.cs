@@ -17,11 +17,24 @@ public class BulletScript : MonoBehaviour
     // om den har gjort skade eller ikke
     public bool dealtDmg = false;
 
+    private void Start()
+    {
+        Player = GameObject.Find("Player");
+        ShootScript = Player.GetComponent<ShooterScript>();
+        Damage = ShootScript.Damage;
+        range = ShootScript.range;
+        pierce = ShootScript.pierce;
+        bounce = ShootScript.bounce;
 
+    }
 
     // Update is called once per frame
     void Update()
     {
+        Damage = ShootScript.Damage;    
+        range = ShootScript.range;
+        pierce = ShootScript.pierce;
+        bounce = ShootScript.bounce;
         Destroy(gameObject, range);
     }
 }

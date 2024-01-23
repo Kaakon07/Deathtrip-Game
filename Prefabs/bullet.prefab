@@ -173,3 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   range: 2
+  pierce: 0
+  bounce: 0
+  dealtDmg: 0

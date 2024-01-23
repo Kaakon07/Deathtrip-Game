@@ -90,7 +90,7 @@ public class ValueScript : MonoBehaviour
             selectedUpgrades.Clear();
 
             // Legger till oppgraderingene du kan velge ved å kalle GetUpgrade metoden, definert lenger ned
-            selectedUpgrades.AddRange(GetUpgrade(4));
+            selectedUpgrades.AddRange(GetUpgrade(3));
 
             // Lar deg beholde xp du har over max xp
             currentExp -= maxExp;
