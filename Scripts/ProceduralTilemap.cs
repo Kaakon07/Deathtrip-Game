@@ -27,14 +27,14 @@ public class ProceduralTilemap : MonoBehaviour
         {
             for (int y = 0; y < 8; y++)
             {
-                Vector3Int tilePosition = new Vector3Int(chunkX*8 + x, chunkY*8 + y, 0);
+                Vector3Int tilePosition = new Vector3Int( chunkX*8 + x, chunkY*8 + y, 0 );
                 if (x == 3)
                 {
-                    tilemap.SetTile(tilePosition, tileSet[(int)(Random.value*2)]);
+                    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
                 }
                 else
                 {
-                    tilemap.SetTile(tilePosition, tileSet[(int)(Random.value*2)]);
+                    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
                 }
             }
         }
@@ -45,9 +45,9 @@ public class ProceduralTilemap : MonoBehaviour
     {
         playerPos = player.transform.position;
 
-        if (tilemap.GetTile(new Vector3Int((int)Mathf.Floor(playerPos.x / 4), (int)Mathf.Floor(playerPos.y / 4))) == false) // Checks if the tile the player is currently on exists or not
+        if ( tilemap.GetTile( new Vector3Int( (int)Mathf.Floor(playerPos.x / 4), (int)Mathf.Floor(playerPos.y / 4) ) ) == false ) // Checks if the tile the player is currently on exists or not
         {
-            GenerateTilemap((int)Mathf.Floor(playerPos.x / 32), (int)Mathf.Floor(playerPos.y / 32)); // Generates a new chunk where the player is
+            GenerateTilemap( (int)Mathf.Floor(playerPos.x / 32), (int)Mathf.Floor(playerPos.y / 32) ); // Generates a new chunk where the player is
         }
 
 
