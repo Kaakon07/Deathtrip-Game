@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
+
+    // referanse
+    public ValueScript script;
+
     // Variabler for vilken direksjon på keyboardet ditt du trykker
     float horizontal;
     float vertical;
 
     // Bevegles hastighet og en referance til objektets rigidbody
-    public float MoveSpeed = 20f;
+    public float MoveSpeed;
     public Rigidbody2D rb;
 
     // Update is called once per frame
@@ -18,7 +22,8 @@ public class MoveScript : MonoBehaviour
     {
         // Definerer direksjon variablene
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");    
+        vertical = Input.GetAxisRaw("Vertical");
+        MoveSpeed = script.moveSpeed;
     }
 
     private void FixedUpdate()

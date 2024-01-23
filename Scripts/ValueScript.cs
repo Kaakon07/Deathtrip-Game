@@ -12,6 +12,7 @@ public class ValueScript : MonoBehaviour
     public float Level;
     public float maxExp;
     public float currentExp;
+    public float moveSpeed;
 
 
     // Referanser til til spillobjekter og andre scripter
@@ -20,15 +21,19 @@ public class ValueScript : MonoBehaviour
     public XPbarScript xpBar;
     public UpgradableScript upgradableScript;
     public HpText hpText;
+    public MoveScript moveScript;
 
     // Initsialisering av lister, som lagrer oppgraderinger du velger, og vilke du har tatt
     public List<UpgradeData> Upgrades;
     List<UpgradeData> selectedUpgrades;
     [SerializeField] List<UpgradeData> acquiredUpgrades;
+    [SerializeField]List<UpgradeData> getUpgrade;
 
     // Start is called before the first frame update
     void Start()
     {
+        // movespeed
+        moveSpeed = 20f;
         // Setter start verdien av variablene
         Level = 1;
         currentHealth = maxHealth;
@@ -118,6 +123,13 @@ public class ValueScript : MonoBehaviour
         {
             Upgrades.Remove(upgradeData);
         }
+        else
+        {
+            getUpgrade.Add(upgradeData);
+            acquiredUpgrades.Remove(upgradeData);
+            RecieveStatUpgrade();
+        }
+        
         
             
     }
@@ -157,5 +169,19 @@ public class ValueScript : MonoBehaviour
         
         // returner upgradeList
         return upgradeList;
+    }
+
+    // gir deg stat oppgraderingen
+    public void RecieveStatUpgrade()
+    {
+        for (int i =0; i < getUpgrade.Count; i++) 
+        {
+            if (getUpgrade[i].statType == "speed")
+            {
+                moveSpeed += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+
+        }
     }
 }

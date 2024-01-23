@@ -2793,17 +2793,20 @@ MonoBehaviour:
   Level: 0
   maxExp: 0
   currentExp: 0
+  moveSpeed: 0
   healthBar: {fileID: 1479441903}
   gameController: {fileID: 1624072379}
   xpBar: {fileID: 1569740779}
   upgradableScript: {fileID: 432244147}
   hpText: {fileID: 1739050915}
+  moveScript: {fileID: 1215105983}
   Upgrades:
-  - {fileID: 11400000, guid: 6431fe16335c60c48a8a9cac864d00ad, type: 2}
-  - {fileID: 11400000, guid: b23b2ad5f13d1ef41b31268b841343f2, type: 2}
-  - {fileID: 11400000, guid: 6c720139c9107104f8d62c7da3141e68, type: 2}
-  - {fileID: 11400000, guid: ed441b570665ede428f11abd7855bff6, type: 2}
+  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
+  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
+  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
+  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
   acquiredUpgrades: []
+  getUpgrade: []
 --- !u!114 &1215105983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2816,7 +2819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6bb7476be97f4c88b917043bbdc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 32
+  script: {fileID: 1215105982}
+  MoveSpeed: 20
   rb: {fileID: 1215105985}
 --- !u!61 &1215105984
 BoxCollider2D:

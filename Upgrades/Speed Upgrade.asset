@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeType: 1
   Name: Speed Upgrade
   statType: speed
-  amount: 0
+  amount: 100
