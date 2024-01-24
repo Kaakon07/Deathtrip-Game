@@ -11,11 +11,18 @@ public class ProceduralTilemap : MonoBehaviour
     private GameObject player;
     private Vector3 playerPos;
     private float tileColor;
+    private Vector2 randTemp;
 
     public Tilemap tilemap;
     public TileBase[] tileSet;
     public Rigidbody2D playerRB;
     public MoveScript moveScript;
+    public LibraryRandom libRand;
+
+    float randFromVector2(Vector2Int randSeed)
+    {
+        return 0.5f;
+    }
 
     void Start()
     {
@@ -48,10 +55,23 @@ public class ProceduralTilemap : MonoBehaviour
 
                 // 
                 tilemap.SetTile(tilePosition, tileSet[2]);
-                tileColor = Random.value;
+
+                randTemp = libRand.randomVector2FromVector2(new Vector2Int(chunkX, chunkY));
+
+                tileColor = 0;
+                if (x == 0 && randTemp.x > 0.5f) //Random.value
+                {
+                    tileColor = 1;
+                }
+                else
+                {
+                    if (y == 0 && randTemp.y > 0.5f)
+                    {
+                        tileColor = 1;
+                    }
+                }
+
                 tilemap.SetColor(tilePosition, new Color(tileColor, tileColor, tileColor, 1));
-
-
             }
         }
     }
@@ -107,8 +127,6 @@ public class ProceduralTilemap : MonoBehaviour
             // Sets the previousPlayerPosition variable to the current position to not repeat the same thing too many times
             moveScript.previousPlayerPosition = playerPos;
         }
-
-
     }
 
 }
