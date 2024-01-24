@@ -20,9 +20,13 @@ public class DrunkBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Promille >= 0) 
+        if (Promille > 0) 
         {
             Promille -= 0.01f * Time.deltaTime; 
+        }
+        else
+        {
+            Promille = 0;
         }
         drunkSlider.value = Promille;
     }
