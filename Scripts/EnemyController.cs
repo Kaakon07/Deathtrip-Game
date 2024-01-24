@@ -102,7 +102,7 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // hvis noe med "bullet" taggen rører fiended, gjør den skade
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             BulletScript bulletScript = collision.gameObject.GetComponent<BulletScript>();
             // sjekker om den har allerede gjor skade
@@ -120,7 +120,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (bulletScript.bounce > 0)
             {
-                //
+                // stopper spilelt fra å ødelegge objected vis det kan sprette
             }
             else
             {

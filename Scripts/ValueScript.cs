@@ -127,6 +127,7 @@ public class ValueScript : MonoBehaviour
         }
         else
         {
+            // legger till stats
             getUpgrade.Add(upgradeData);
             acquiredUpgrades.Remove(upgradeData);
             RecieveStatUpgrade();
