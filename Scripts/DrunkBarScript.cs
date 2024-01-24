@@ -9,12 +9,15 @@ public class DrunkBarScript : MonoBehaviour
 
     [SerializeField] float Promille;
     public GameObject distortionField;
+    public Material distortionMaterial;
     
     
     // Start is called before the first frame update
     void Start()
     {
         Promille = 0;
+        distortionMaterial = distortionField.GetComponent<MeshRenderer>().material;
+
     }
 
     // Update is called once per frame
@@ -29,6 +32,17 @@ public class DrunkBarScript : MonoBehaviour
             Promille = 0;
         }
         drunkSlider.value = Promille;
+
+        if (Promille <= 0) 
+        {
+            distortionField.SetActive(false);
+        }
+        else if (Promille < 0.2)
+        {
+            distortionField.SetActive(true);
+            distortionMaterial.SetVector("_DistortionSpeed",  new Vector4(0.05f, 0f, 0f,0f));
+            distortionMaterial.SetVector("_DistortionPower", new Vector4(0.05f, 0f, 0f, 0f));
+        }  
 
     }
 }

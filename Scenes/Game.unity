@@ -3533,6 +3533,7 @@ MonoBehaviour:
   drunkSlider: {fileID: 1504129058}
   Promille: 1
   distortionField: {fileID: 1977510824}
+  distortionMaterial: {fileID: 2100000, guid: f7bc0c476160f83468e5e68ff1059b71, type: 2}
 --- !u!1 &1514715072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,6 +3748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 1724192616}
   PauseScreen: {fileID: 1896894836}
+  DiffLevel: 0
 --- !u!4 &1624072380
 Transform:
   m_ObjectHideFlags: 0

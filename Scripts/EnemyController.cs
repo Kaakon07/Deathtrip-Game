@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        // Controllerer spillets vanskelighet
         if (gameControl.DiffLevel != 0)
         {
             health = 20 + (8 * gameControl.DiffLevel);
