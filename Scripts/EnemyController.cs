@@ -26,6 +26,9 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject XpOrb;
 
+    // Difficulty Timer
+    private float DiffLevel;
+
     // Timer
     private float timer = 0;
     private float threshhold = 25;
@@ -35,6 +38,9 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        // initialiserer diff level
+        DiffLevel = 0;
+
         // definerer referanser, fordi det er en prefab
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
@@ -46,6 +52,11 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Difficulty timer
+        DiffLevel = Mathf.Floor(Time.time * 0.0212765957446808510638f);
+
+
+
         // hvis fienden rører spilleren, gjør den skade på spilleren
         if (timer < threshhold)
         {
