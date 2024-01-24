@@ -3535,6 +3535,7 @@ MonoBehaviour:
   Promille: 1
   distortionField: {fileID: 1977510824}
   distortionMaterial: {fileID: 2100000, guid: f7bc0c476160f83468e5e68ff1059b71, type: 2}
+  valuescript: {fileID: 1215105982}
 --- !u!1 &1514715072
 GameObject:
   m_ObjectHideFlags: 0
