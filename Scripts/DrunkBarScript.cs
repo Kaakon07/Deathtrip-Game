@@ -10,13 +10,15 @@ public class DrunkBarScript : MonoBehaviour
     [SerializeField] float Promille;
     public GameObject distortionField;
     public Material distortionMaterial;
+
+    public ValueScript valuescript;
     
     
     // Start is called before the first frame update
     void Start()
     {
         Promille = 0;
-        distortionMaterial = distortionField.GetComponent<MeshRenderer>().material;
+        distortionMaterial = distortionField.GetComponent<SpriteRenderer>().material;
 
     }
 
@@ -26,6 +28,7 @@ public class DrunkBarScript : MonoBehaviour
         if (Promille > 0) 
         {
             Promille -= 0.01f * Time.deltaTime; 
+            distortionField.SetActive(true);
         }
         else
         {
@@ -33,15 +36,42 @@ public class DrunkBarScript : MonoBehaviour
         }
         drunkSlider.value = Promille;
 
-        if (Promille <= 0) 
+
+        if (Promille >= 1)
         {
-            distortionField.SetActive(false);
+            valuescript.currentHealth = -999;
         }
-        else if (Promille < 0.2)
+        else if (Promille >= 0.9) 
+        {
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.5f, 0.1f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionPower", new Vector4(0.75f, 0.1f, 0f, 0f));
+
+        }
+        else if (Promille >= 0.8)
+        {
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.25f, 0f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionPower", new Vector4(0.40f, 0.05f, 0f, 0f));
+
+        }
+        else if (Promille >= 0.5)
+        {
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.10f, 0f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionPower", new Vector4(0.20f, 0.01f, 0f, 0f));
+
+        }
+        else if (Promille >= 0.2)
+        {
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.05f, 0f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionPower", new Vector4(0.10f, 0f, 0f, 0f));
+
+        }
+        else if (Promille > 0)
         {
             distortionField.SetActive(true);
-            distortionMaterial.SetVector("_DistortionSpeed",  new Vector4(0.05f, 0f, 0f,0f));
-            distortionMaterial.SetVector("_DistortionPower", new Vector4(0.05f, 0f, 0f, 0f));
+        }
+        else
+        {
+            distortionField.SetActive(false);
         }  
 
     }
