@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     // mer stats
     public float health;
+    public float maxHealth;
     public float damage;
 
     // referanser
@@ -27,40 +28,50 @@ public class EnemyController : MonoBehaviour
     public GameObject XpOrb;
     public GameObject Controller;
     private GameController gameControl;
+    private SpriteRenderer spriteRenderer;
+    private Color baseColor;
 
     // Timer
     private float timer = 0;
     private float threshhold = 25;
 
-    
+    // lyd
+    public AudioClip deathClip;
+    public AudioClip damageToPlayer;
+    private AudioSource aSource;
+
+
 
 
     void Start()
     {
-        health = 20;
-        damage = 20;
 
-        // definerer referanser, fordi det er en prefab
+
+        // definerer referanser, fordi det er en prefab;
+        Player = GameObject.Find("Player");
+        spriteRenderer = GetComponent<SpriteRenderer>();
         Controller = GameObject.Find("GameController");
         gameControl = Controller.GetComponent<GameController>();
         rb = GetComponent<Rigidbody2D>();
-        Player = GameObject.Find("Player");
         target = Player.transform;
+        aSource = Player.GetComponent<AudioSource>();
         playerCollider = Player.GetComponent<Collider2D>();
         enemyCollider = GetComponent<Collider2D>();
         HealthScript = Player.GetComponent<ValueScript>();
-    }
 
-    private void Update()
-    {
-        // Controllerer spillets vanskelighet
-        if (gameControl.DiffLevel != 0)
-        {
-            health = 20 + (8 * gameControl.DiffLevel);
-            damage = 20 + (2 * gameControl.DiffLevel);
-        }
+        // base farge
+        baseColor = spriteRenderer.color;
 
-    }
+        // Vanskelighets Skala
+        maxHealth = 20 + (4 * gameControl.DiffLevel - 1);
+        health = maxHealth;
+        damage = 20 + (2 * gameControl.DiffLevel - 1);
+
+
+}
+
+
+    
 
     void FixedUpdate()
     {
@@ -76,6 +87,7 @@ public class EnemyController : MonoBehaviour
         else if (enemyCollider.IsTouching(playerCollider))
         {
             HealthScript.dealDamage(damage);
+            aSource.PlayOneShot(damageToPlayer);
             timer = 0;
         }
 
@@ -83,8 +95,14 @@ public class EnemyController : MonoBehaviour
         // hvis fiended har helse av 0 eller mindre, forsvinner den og lager en XP orb
         if (health <= 0)
         {
-            Instantiate(XpOrb, transform.position, transform.rotation);
-            Destroy(gameObject);
+            for (int i = 0; i < gameControl.DiffLevel; i++) 
+            {
+                Vector3 randomVals = new Vector3(Random.value,Random.value,0);
+                Instantiate(XpOrb, transform.position + randomVals, transform.rotation);
+                aSource.PlayOneShot(deathClip,0.5f);
+                Destroy(gameObject);
+            }
+
         }
 
 
@@ -109,7 +127,7 @@ public class EnemyController : MonoBehaviour
             if (bulletScript.dealtDmg == false)
             {
                 EnemyDamage(bulletScript.Damage);
-                
+                FlashRed();
             }
             bulletScript.dealtDmg = true;
             // sjekker om skuddet kan pierce eller bounce
@@ -137,6 +155,16 @@ public class EnemyController : MonoBehaviour
         health -= dmg;
     }
 
+    // skifter fargen til rød når fienden tar skade
+    void FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        Invoke(nameof(ResetColor), 0.1f);
+    }
 
+    void ResetColor()
+    {
+        spriteRenderer.color = baseColor;
+    }
 
 }

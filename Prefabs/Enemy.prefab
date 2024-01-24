@@ -102,9 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   health: 20
+  maxHealth: 0
   damage: 20
   XpOrb: {fileID: 2391687498511756407, guid: 5db58995da437134284971fb32fd3c40, type: 3}
   Controller: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: d5883559e512f334aaffb0976d9c1a1f, type: 3}
+  damageToPlayer: {fileID: 8300000, guid: 0fa258c1b32631142a2e0b505bc241e1, type: 3}
 --- !u!61 &1783317436927859846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03864658, y: -0.07085264}
+  m_Offset: {x: 0.03864658, y: 0.072463036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -148,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5362375, y: 0.8582947}
+  m_Size: {x: 0.5362375, y: 2.3956797}
   m_EdgeRadius: 0
 --- !u!50 &4711313014821165068
 Rigidbody2D:

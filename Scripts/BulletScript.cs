@@ -33,10 +33,6 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Damage = ShootScript.Damage;    
-        range = ShootScript.range;
-        pierce = ShootScript.pierce;
-        bounce = ShootScript.bounce;
         Destroy(gameObject, range);
     }
 
@@ -46,6 +42,7 @@ public class BulletScript : MonoBehaviour
         {
             rb.velocity = rb.velocity * -1;
             bounce--;
+            dealtDmg = false;
         }
     }
 }

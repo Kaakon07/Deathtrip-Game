@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ShooterScript : MonoBehaviour
 {
@@ -8,8 +9,12 @@ public class ShooterScript : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
+    // lyd som spilelr når du skyter
+    public AudioClip shootSound;
+    public AudioSource aSource;
+
     // Hvor du ser, og angle av hvor du ser fra spilleren
-    Vector2 lookDirection;
+    Vector3 lookDirection;
     float lookAngle;
 
     // timer
@@ -39,12 +44,13 @@ public class ShooterScript : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // Definerer verdien av "lookDircetion" ved å trekke fra spiller posisjonen fra spiller posisjonen
-        lookDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+        lookDirection = mousePosition - transform.position;
         // finner vinkelen fra musen til spilleren
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         // får firePoint objektet til å rotere mot musen
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
+        
         
 
 
@@ -61,6 +67,7 @@ public class ShooterScript : MonoBehaviour
         {
             // lager en kopi av "Bullet" prefabben, så setter start posisjonen og rotasjonen
             GameObject bulletClone = Instantiate(bullet);
+            aSource.PlayOneShot(shootSound);
             bulletClone.transform.position = firePoint.position;
             bulletClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle-90);
 

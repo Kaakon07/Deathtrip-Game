@@ -25,8 +25,8 @@ public class GameController : MonoBehaviour
     private void FixedUpdate()
     {
         // Difficulty timer
-        DiffLevel = Mathf.Floor(Time.time * 0.0487804878f);
-        Debug.Log(DiffLevel.ToString());
+        DiffLevel = Mathf.Floor(Time.time * 0.01694915254f) + 1;
+        //Debug.Log(DiffLevel.ToString());
     }
 
     // sjekker om du trykker esc, om du gjør det pauser spillet, eller hvis spillet er pauset, upauser det
