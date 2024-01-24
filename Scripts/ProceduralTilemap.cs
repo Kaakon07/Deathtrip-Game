@@ -10,6 +10,7 @@ public class ProceduralTilemap : MonoBehaviour
 
     private GameObject player;
     private Vector3 playerPos;
+    private float tileColor;
 
     public Tilemap tilemap;
     public TileBase[] tileSet;
@@ -34,14 +35,23 @@ public class ProceduralTilemap : MonoBehaviour
             for (int y = 0; y < 8; y++) // Loop for y axis
             {
                 Vector3Int tilePosition = new Vector3Int( chunkX*8 + x, chunkY*8 + y, 0 ); // Creates a tile position variable
-                if (x == 3)
-                {
-                    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
-                }
-                else
-                {
-                    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
-                }
+
+                // Random tiles
+                //if (x == 3)
+                //{
+                //    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
+                //}
+                //else
+                //{
+                //    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
+                //}
+
+                // 
+                tilemap.SetTile(tilePosition, tileSet[2]);
+                tileColor = Random.value;
+                tilemap.SetColor(tilePosition, new Color(tileColor, tileColor, tileColor, 1));
+
+
             }
         }
     }
