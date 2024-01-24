@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeType: 1
   Name: Health UP!
   statType: health
-  amount: 10
+  amount: 15

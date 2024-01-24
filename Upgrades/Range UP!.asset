@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeType: 1
   Name: Range UP!
   statType: range
-  amount: 0.5
+  amount: 0.25

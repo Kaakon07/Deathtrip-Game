@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeType: 1
   Name: Fire Speed UP!
   statType: firespeed
-  amount: -5
+  amount: -2.5
