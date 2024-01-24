@@ -2921,6 +2921,7 @@ MonoBehaviour:
   script: {fileID: 1215105982}
   MoveSpeed: 20
   rb: {fileID: 1215105985}
+  previousPlayerPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &1215105984
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2979,7 +2980,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -4740,6 +4741,8 @@ MonoBehaviour:
   tileSet:
   - {fileID: 11400000, guid: 6e930aad6a816404b853aa1b52fa21eb, type: 2}
   - {fileID: 11400000, guid: 326b9db64e12de240b88a28102b5f0d8, type: 2}
+  playerRB: {fileID: 0}
+  moveScript: {fileID: 1215105983}
 --- !u!1 &2042873733
 GameObject:
   m_ObjectHideFlags: 0
