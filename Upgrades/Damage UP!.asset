@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4603da8be5683b143b735ea6f22db4b3, type: 3}
-  m_Name: Speed Upgrade
+  m_Name: Damage UP!
   m_EditorClassIdentifier: 
   upgradeType: 1
-  Name: Speed Upgrade
-  statType: speed
-  amount: 100
+  Name: Damage UP!
+  statType: damage
+  amount: 5

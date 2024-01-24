@@ -209,12 +209,12 @@ public class ValueScript : MonoBehaviour
             }
             else if (getUpgrade[i].statType == "bounce")
             {
-                shooterScript.bounce += getUpgrade[i].amount;
+                shooterScript.bounce += (int)getUpgrade[i].amount;
                 getUpgrade.Remove(getUpgrade[i]);
             }
             else if (getUpgrade[i].statType == "pierce")
             {
-                shooterScript.pierce     += getUpgrade[i].amount;
+                shooterScript.pierce     += (int)getUpgrade[i].amount;
                 getUpgrade.Remove(getUpgrade[i]);
             }
 

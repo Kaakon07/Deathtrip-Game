@@ -29,5 +29,6 @@ public class DrunkBarScript : MonoBehaviour
             Promille = 0;
         }
         drunkSlider.value = Promille;
+
     }
 }

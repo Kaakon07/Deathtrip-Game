@@ -2802,9 +2802,13 @@ MonoBehaviour:
   moveScript: {fileID: 1215105983}
   shooterScript: {fileID: 1215105988}
   Upgrades:
-  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
-  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
-  - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
+  - {fileID: 11400000, guid: 7c1996a841b277f4eb3e8130e7779cdd, type: 2}
+  - {fileID: 11400000, guid: eb9bacb8847174d44b64309ffd4dc156, type: 2}
+  - {fileID: 11400000, guid: b7c52c26799a93745ac9dc6906f0be5d, type: 2}
+  - {fileID: 11400000, guid: e915e62dd638fee40907cd419e51a5f2, type: 2}
+  - {fileID: 11400000, guid: fba0c5213d8517f4495fced39fea3ee9, type: 2}
+  - {fileID: 11400000, guid: 06bc2ac921e39ac46bd778b63f2487ca, type: 2}
+  - {fileID: 11400000, guid: bae5723b3d0969d478073bed8eba1a2e, type: 2}
   - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
   acquiredUpgrades: []
   getUpgrade: []
@@ -3339,7 +3343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504129056}
   - component: {fileID: 1504129058}
-  - component: {fileID: 1504129057}
+  - component: {fileID: 1504129059}
   m_Layer: 5
   m_Name: DrunkBar
   m_TagString: Untagged
@@ -3369,19 +3373,6 @@ RectTransform:
   m_AnchoredPosition: {x: 325.4885, y: -60}
   m_SizeDelta: {x: 5.9303, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1504129057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504129055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c098dc7d2a35f474eb0c2993f265e2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarSlider: {fileID: 1504129058}
 --- !u!114 &1504129058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3433,6 +3424,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1504129059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504129055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4a5a4975592ad418526e9bab6b34cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drunkSlider: {fileID: 1504129058}
+  Promille: 1
+  distortionField: {fileID: 1977510824}
 --- !u!1 &1514715072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,7 +4497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1977510825
 SpriteRenderer:
   m_ObjectHideFlags: 0
