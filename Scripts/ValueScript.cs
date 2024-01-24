@@ -60,6 +60,7 @@ public class ValueScript : MonoBehaviour
 
         // skifter konstant maxHp og maxXP til hp baren og xp baren
         xpBar.SetMaxXp(maxExp);
+        healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
 
         // sette nåtidlige XPen din til nåtidlige XPen til XP baren

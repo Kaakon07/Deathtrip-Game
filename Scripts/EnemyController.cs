@@ -14,8 +14,8 @@ public class EnemyController : MonoBehaviour
     private float range;
 
     // mer stats
-    public float health = 20f;
-    public float damage = 20f;
+    public float health;
+    public float damage;
 
     // referanser
     private GameObject Player;
@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
     public GameObject XpOrb;
+    public GameObject Controller;
+    private GameController gameControl;
 
     // Timer
     private float timer = 0;
@@ -35,7 +37,12 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        health = 20;
+        damage = 20;
+
         // definerer referanser, fordi det er en prefab
+        Controller = GameObject.Find("GameController");
+        gameControl = Controller.GetComponent<GameController>();
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
         target = Player.transform;
@@ -44,8 +51,22 @@ public class EnemyController : MonoBehaviour
         HealthScript = Player.GetComponent<ValueScript>();
     }
 
+    private void Update()
+    {
+        if (gameControl.DiffLevel != 0)
+        {
+            health = 20 + (8 * gameControl.DiffLevel);
+            damage = 20 + (2 * gameControl.DiffLevel);
+        }
+
+    }
+
     void FixedUpdate()
     {
+       
+
+
+
         // hvis fienden rører spilleren, gjør den skade på spilleren
         if (timer < threshhold)
         {

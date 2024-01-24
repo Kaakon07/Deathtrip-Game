@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     public GameOverScript GameOverScreen;
     public PauseScript PauseScreen;
 
+    // difficulty
+    public float DiffLevel;
+
     // slutter spillet ved å kalle en funksjon
     public void GameOver()
     {
@@ -18,9 +21,18 @@ public class GameController : MonoBehaviour
         
     }
 
+
+    private void FixedUpdate()
+    {
+        // Difficulty timer
+        DiffLevel = Mathf.Floor(Time.time * 0.0487804878f);
+        Debug.Log(DiffLevel.ToString());
+    }
+
     // sjekker om du trykker esc, om du gjør det pauser spillet, eller hvis spillet er pauset, upauser det
     public void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape) && PauseScreen.Paused == false)
         {
             PauseScreen.Pause();
