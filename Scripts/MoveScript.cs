@@ -16,6 +16,7 @@ public class MoveScript : MonoBehaviour
     // Bevegles hastighet og en referance til objektets rigidbody
     public float MoveSpeed;
     public Rigidbody2D rb;
+    public Vector3 previousPlayerPosition;
 
     // Update is called once per frame
     void Update()
@@ -28,6 +29,8 @@ public class MoveScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Saves the player position before the velocity updates, this is important for chunks loading
+        previousPlayerPosition = rb.position;
         // Definerer en Vector2 Variabel som heter movement, og den har axene du skal bevege deg i, fra -1 til 1
         Vector2 movement = new Vector2(horizontal, vertical);
         // Bestemmer hastigheten du beverger deg i, og direksjonen ved å gange axis inputene med bevegelses hastigheten.

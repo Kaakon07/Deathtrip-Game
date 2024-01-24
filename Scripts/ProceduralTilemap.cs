@@ -10,25 +10,30 @@ public class ProceduralTilemap : MonoBehaviour
 
     private GameObject player;
     private Vector3 playerPos;
-    private Vector3 chunkSize;
-    private Vector2 print1;
-    private Vector2 print2;
 
     public Tilemap tilemap;
     public TileBase[] tileSet;
+    public Rigidbody2D playerRB;
+    public MoveScript moveScript;
 
     void Start()
     {
         player = GameObject.Find("Player");
+
+        // Generate the chunks around spawn
+        checkChunkAndGenerate(new Vector3(0, 0));
+        checkChunkAndGenerate(new Vector3(-1, 0));
+        checkChunkAndGenerate(new Vector3(0, -1));
+        checkChunkAndGenerate(new Vector3(-1, -1));
     }
 
-    void GenerateTilemap(int chunkX, int chunkY)
+    void GenerateTilemap(int chunkX, int chunkY) // Generates the tilemap
     {
-        for (int x = 0; x < 8; x++)
+        for (int x = 0; x < 8; x++) // Loop for x axis
         {
-            for (int y = 0; y < 8; y++)
+            for (int y = 0; y < 8; y++) // Loop for y axis
             {
-                Vector3Int tilePosition = new Vector3Int( chunkX*8 + x, chunkY*8 + y, 0 );
+                Vector3Int tilePosition = new Vector3Int( chunkX*8 + x, chunkY*8 + y, 0 ); // Creates a tile position variable
                 if (x == 3)
                 {
                     tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
@@ -41,28 +46,59 @@ public class ProceduralTilemap : MonoBehaviour
         }
     }
 
-    bool checkTileExists(Vector3 unitPosition)
+    Vector3Int unitToTilePosition(Vector3 unitPosition) // Converts unity units to tile position
     {
-        return tilemap.GetTile(new Vector3Int( (int)Mathf.Floor(unitPosition.x) >> 2, (int)Mathf.Floor(unitPosition.y) >> 2 ) ) == false;
+        return new Vector3Int((int)Mathf.Floor(unitPosition.x) >> 2, (int)Mathf.Floor(unitPosition.y) >> 2);
+    }
+
+    bool checkTileExists(Vector3 unitPosition) // Checks if the tile at unitPosition exists
+    {
+        return tilemap.GetTile(unitToTilePosition(unitPosition)) == false;
     }
 
     void checkChunkAndGenerate(Vector3 unitPosition)
     {
-        if (checkTileExists(unitPosition)) // Checks if the tile the player is currently on exists or not
+        if (checkTileExists(unitPosition)) // Checks if the tile at unitPosition exists
         {
-            GenerateTilemap( (int)Mathf.Floor(unitPosition.x) >> 5, (int)Mathf.Floor(unitPosition.y) >> 5 ); // Generates a new chunk where the player is
+            GenerateTilemap( (int)Mathf.Floor(unitPosition.x) >> 5, (int)Mathf.Floor(unitPosition.y) >> 5 ); // Generates a new chunk at unitPosition
         }
+    }
+
+    bool checkTileMoved() // Checks if the player has moved into a new tile
+    {
+        playerPos = player.transform.position;
+        return unitToTilePosition(moveScript.previousPlayerPosition) != unitToTilePosition(playerPos);
     }
     
 
-    // Update is called once per frame
     void Update()
     {
         playerPos = player.transform.position;
 
-        checkChunkAndGenerate(playerPos - (new Vector3(32, 0, 0)));
-        checkChunkAndGenerate(playerPos);
-        checkChunkAndGenerate(playerPos + (new Vector3(32, 0, 0)));
+        if (checkTileMoved()) // Checks if the player has moved into a new tile
+        {
+            Debug.Log("Player entered a new tile!"); // Prints a message when the player moves into a new tile
+
+            // Generates chunks from (-1, -1) to (1, -1)
+            checkChunkAndGenerate(playerPos + new Vector3(-32, -32, 0) );
+            checkChunkAndGenerate(playerPos + new Vector3(0, -32, 0) );
+            checkChunkAndGenerate(playerPos + new Vector3(32, -32, 0) );
+
+            // Generates chunks from (-1, 0) to (1, 0)
+            checkChunkAndGenerate(playerPos + new Vector3(-32, 0, 0) );
+            checkChunkAndGenerate(playerPos);
+            checkChunkAndGenerate(playerPos + new Vector3(32, 0, 0) );
+
+            // Generates chunks from (-1, 1) to (1, 1)
+            checkChunkAndGenerate(playerPos + new Vector3(-32, 32, 0));
+            checkChunkAndGenerate(playerPos + new Vector3(0, 32, 0));
+            checkChunkAndGenerate(playerPos + new Vector3(32, 32, 0));
+
+            // Sets the previousPlayerPosition variable to the current position to not repeat the same thing too many times
+            moveScript.previousPlayerPosition = playerPos;
+        }
+
+
     }
 
 }
