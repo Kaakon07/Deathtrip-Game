@@ -2800,6 +2800,7 @@ MonoBehaviour:
   upgradableScript: {fileID: 432244147}
   hpText: {fileID: 1739050915}
   moveScript: {fileID: 1215105983}
+  shooterScript: {fileID: 1215105988}
   Upgrades:
   - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
   - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}

@@ -22,6 +22,7 @@ public class ValueScript : MonoBehaviour
     public UpgradableScript upgradableScript;
     public HpText hpText;
     public MoveScript moveScript;
+    public ShooterScript shooterScript;
 
     // Initsialisering av lister, som lagrer oppgraderinger du velger, og vilke du har tatt
     public List<UpgradeData> Upgrades;
@@ -179,6 +180,41 @@ public class ValueScript : MonoBehaviour
             if (getUpgrade[i].statType == "speed")
             {
                 moveSpeed += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "health")
+            {
+                maxHealth += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "firespeed")
+            {
+                 shooterScript.FireSpeed += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "bulletspeed")
+            {
+                shooterScript.BulletSpeed += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "damage")
+            {
+                shooterScript.Damage += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "range")
+            {
+                shooterScript.range += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "bounce")
+            {
+                shooterScript.bounce += getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
+            }
+            else if (getUpgrade[i].statType == "pierce")
+            {
+                shooterScript.pierce     += getUpgrade[i].amount;
                 getUpgrade.Remove(getUpgrade[i]);
             }
 

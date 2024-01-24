@@ -37,8 +37,8 @@ public class MoveScript : MonoBehaviour
         if (movement != Vector2.zero)
         {
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-            float roundedAngle = Mathf.Round(angle / 45f) * 45f;
-            rb.rotation = roundedAngle-90;
+            rb.rotation = angle-90;
         }
     }
 }
+ 
