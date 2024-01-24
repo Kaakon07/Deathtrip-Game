@@ -43,19 +43,19 @@ public class DrunkBarScript : MonoBehaviour
         }
         else if (Promille >= 0.9) 
         {
-            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.5f, 0.1f, 0f, 0f));
-            distortionMaterial.SetVector("DistortionPower", new Vector4(0.75f, 0.1f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.75f, 0.15f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionPower", new Vector4(0.75f, 0.15f, 0f, 0f));
 
         }
         else if (Promille >= 0.8)
         {
-            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.25f, 0f, 0f, 0f));
-            distortionMaterial.SetVector("DistortionPower", new Vector4(0.40f, 0.05f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.25f, 0.10f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionPower", new Vector4(0.40f, 0.10f, 0f, 0f));
 
         }
         else if (Promille >= 0.5)
         {
-            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.10f, 0f, 0f, 0f));
+            distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.10f, 0.01f, 0f, 0f));
             distortionMaterial.SetVector("DistortionPower", new Vector4(0.20f, 0.01f, 0f, 0f));
 
         }
