@@ -14,8 +14,8 @@ public class EnemyController : MonoBehaviour
     private float range;
 
     // mer stats
-    public float health = 20f;
-    public float damage = 20f;
+    public float health;
+    public float damage;
 
     // referanser
     private GameObject Player;
@@ -25,9 +25,8 @@ public class EnemyController : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
     public GameObject XpOrb;
-
-    // Difficulty Timer
-    private float DiffLevel;
+    public GameObject Controller;
+    private GameController gameControl;
 
     // Timer
     private float timer = 0;
@@ -38,10 +37,12 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        // initialiserer diff level
-        DiffLevel = 0;
+        health = 20;
+        damage = 20;
 
         // definerer referanser, fordi det er en prefab
+        Controller = GameObject.Find("GameController");
+        gameControl = Controller.GetComponent<GameController>();
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
         target = Player.transform;
@@ -50,10 +51,19 @@ public class EnemyController : MonoBehaviour
         HealthScript = Player.GetComponent<ValueScript>();
     }
 
+    private void Update()
+    {
+        if (gameControl.DiffLevel != 0)
+        {
+            health = 20 + (8 * gameControl.DiffLevel);
+            damage = 20 + (2 * gameControl.DiffLevel);
+        }
+
+    }
+
     void FixedUpdate()
     {
-        // Difficulty timer
-        DiffLevel = Mathf.Floor(Time.time * 0.0212765957446808510638f);
+       
 
 
 

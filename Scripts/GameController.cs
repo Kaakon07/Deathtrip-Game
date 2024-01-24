@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public PauseScript PauseScreen;
 
     // difficulty
-    private float DiffLevel;
+    public float DiffLevel;
 
     // slutter spillet ved å kalle en funksjon
     public void GameOver()
