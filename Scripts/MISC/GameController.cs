@@ -39,7 +39,6 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < Mathf.Floor(enemiesSpawnAmount); i++)
         {
             enemySpawner();
-
         }
         mixer.SetFloat("gameVolume", 0);
 
@@ -49,7 +48,6 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         GameOverScreen.Setup();
-        
     }
 
 
@@ -67,7 +65,6 @@ public class GameController : MonoBehaviour
             for (int i = 0; i < Mathf.Floor(enemiesSpawnAmount); i++)
             {
                 enemySpawner();
-                
             }
             enemiesSpawnAmount += 2;
             timer = 0;
@@ -93,7 +90,6 @@ public class GameController : MonoBehaviour
 
     public void enemySpawner()
     {
-
         Instantiate(Enemy, enemyPosMethod(), Enemy.transform.rotation);
     }
 
@@ -103,7 +99,7 @@ public class GameController : MonoBehaviour
         float randRadius = UnityEngine.Random.Range(minRange, maxRange);
 
 
-        return new Vector3(Mathf.Cos(randAngle)*randRadius, Mathf.Sin(randAngle)*randRadius, 0);
+        return new Vector3(Mathf.Cos(randAngle)*randRadius + Player.transform.position.x, Mathf.Sin(randAngle)* randRadius + Player.transform.position.y, 0);
     }   
 
 }

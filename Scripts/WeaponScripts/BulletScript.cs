@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     private ShooterScript ShootScript;
     private Rigidbody2D rb;
     public GameObject explode;
+    //private Camera camera;
     
 
     // Stats
@@ -46,6 +47,8 @@ public class BulletScript : MonoBehaviour
             bounce--;
             dealtDmg = false;
         }
+
+
         if (collision.CompareTag("Enemy"))   
         {
             if (ShootScript.explode == true)
