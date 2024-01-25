@@ -6,14 +6,11 @@ public class LibraryRandom : MonoBehaviour
 {
     private int temp;
     private int randTemp;
-    public int[] permutationTable = new int[256];
-    //List<int> permutationList;
 
 
     public float randomFloatFromVector2(Vector2Int randSeed)
     {
 
-        //return (float)( permutationTable[ ( randSeed.y + permutationTable[randSeed.x & 255] ) & 255 ] ) / 255;
         if (randSeed.y > randSeed.x)
         {
             Random.InitState(randSeed.y * randSeed.y + randSeed.x);
@@ -29,7 +26,6 @@ public class LibraryRandom : MonoBehaviour
     public Vector2 randomVector2FromVector2(Vector2Int randSeed)
     {
 
-        //return (float)( permutationTable[ ( randSeed.y + permutationTable[randSeed.x & 255] ) & 255 ] ) / 255;
         if (randSeed.y > randSeed.x)
         {
             Random.InitState(randSeed.y * randSeed.y + randSeed.x);
@@ -44,19 +40,6 @@ public class LibraryRandom : MonoBehaviour
 
     void Start()
     {
-        for (int x = 0; x < 255; x++)
-        {
-            permutationTable[x] = x;
-        }
-
-        Random.InitState(42);
-        for (int x = 1; x < 512; x++)
-        {
-            randTemp = (int)(Random.value * 256);
-            temp = permutationTable[x];
-            permutationTable[x] = permutationTable[randTemp];
-            permutationTable[randTemp] = temp;
-        }
 
     }
 }

@@ -20,15 +20,13 @@ public class GameController : MonoBehaviour
     // difficulty
     public float DiffLevel;
 
+    // Enemy spawner timer!!! :D
+    private float timer = 0;
+    private float threshhold = 7.4f;
 
-    private void Start()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            enemySpawner();
-        }
-        
-    }
+
+
+
     // slutter spillet ved å kalle en funksjon
     public void GameOver()
     {
@@ -41,6 +39,8 @@ public class GameController : MonoBehaviour
     {
         // Difficulty timer
         DiffLevel = Mathf.Floor(Time.time * 0.01694915254f) + 1;
+
+
         
     }
 

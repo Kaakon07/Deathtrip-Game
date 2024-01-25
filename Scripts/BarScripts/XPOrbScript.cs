@@ -13,6 +13,9 @@ public class XPOrbScript : MonoBehaviour
     private AudioSource playerAudioSource;
     public AudioClip xpPickup;
 
+    // Private variables
+    private float xpDistance;
+
     // hvor nerme den begynner å følge etter deg
     public float autoRange = 10f;
 
@@ -30,16 +33,18 @@ public class XPOrbScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) < autoRange)
+        xpDistance = Vector3.Distance(Player.transform.position, transform.position);
+        if (xpDistance < autoRange)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, 5 * Time.deltaTime);
+            xpDistance = xpDistance * 0.2f;
+            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, Mathf.Exp(-xpDistance*xpDistance) * 5 * Time.deltaTime);
         }
 
         // hvis den rører spilleren, gir den XP
         if (orbCollider.IsTouching(playerCollider))
         {
             ValueScript.GiveXp(20);
-            playerAudioSource.PlayOneShot(xpPickup);
+            playerAudioSource.PlayOneShot(xpPickup, 0.5f);
             Destroy(gameObject);
         }
     }
