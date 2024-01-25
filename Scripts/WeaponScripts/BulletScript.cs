@@ -8,6 +8,8 @@ public class BulletScript : MonoBehaviour
     private GameObject Player;
     private ShooterScript ShootScript;
     private Rigidbody2D rb;
+    public GameObject explode;
+    
 
     // Stats
     public float Damage;
@@ -43,6 +45,14 @@ public class BulletScript : MonoBehaviour
             rb.velocity = rb.velocity * -1;
             bounce--;
             dealtDmg = false;
+        }
+
+        if (ShootScript.explode == true)
+        {
+            if (collision.CompareTag("Enemy"))
+            {
+                //instan
+            }
         }
     }
 }

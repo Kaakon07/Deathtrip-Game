@@ -28,6 +28,9 @@ public class ShooterScript : MonoBehaviour
     public int pierce = 0;
     public int bounce = 0;
 
+    // upgrade bool
+    public bool explode = false;
+
 
     // Start is called before the first frame update
     void Start()
