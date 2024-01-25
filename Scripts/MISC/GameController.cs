@@ -10,6 +10,11 @@ public class GameController : MonoBehaviour
     // referanser
     public GameOverScript GameOverScreen;
     public PauseScript PauseScreen;
+    public GameObject Enemy;
+    public GameObject Player;
+
+    // hvor langt unna enemies spawner
+    private float range = 30f;
 
     // difficulty
     public float DiffLevel;
@@ -26,7 +31,7 @@ public class GameController : MonoBehaviour
     {
         // Difficulty timer
         DiffLevel = Mathf.Floor(Time.time * 0.01694915254f) + 1;
-        //Debug.Log(DiffLevel.ToString());
+        
     }
 
     // sjekker om du trykker esc, om du gjør det pauser spillet, eller hvis spillet er pauset, upauser det
@@ -42,4 +47,11 @@ public class GameController : MonoBehaviour
             PauseScreen.UnPause();
         }
     }
+
+    public void enemySpawner()
+    {
+
+        //Instantiate(Enemy,);
+    }
+
 }
