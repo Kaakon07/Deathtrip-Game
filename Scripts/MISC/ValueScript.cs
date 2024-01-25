@@ -236,11 +236,11 @@ public class ValueScript : MonoBehaviour
 
     public void recieveBulletUp()
     {
-        for (int i = 0;  i < getUpgrade.Count; i++) 
+        for (int i = 0;  i < acquiredUpgrades.Count; i++) 
         {
-            if (getUpgrade[i].name == "rocket")
+            if (acquiredUpgrades[i].name == "rocket")
             {
-                getUpgrade.Remove(getUpgrade[i]);
+                acquiredUpgrades.Remove(acquiredUpgrades[i]);
                 shooterScript.explode = true;
             }
         }
