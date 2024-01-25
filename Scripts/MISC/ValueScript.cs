@@ -65,6 +65,10 @@ public class ValueScript : MonoBehaviour
         xpBar.SetMaxXp(maxExp);
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += 0.5f * Time.deltaTime;
+        }
 
         // sette nåtidlige XPen din til nåtidlige XPen til XP baren
         xpBar.SetXP(currentExp);
