@@ -14,11 +14,21 @@ public class GameController : MonoBehaviour
     public GameObject Player;
 
     // hvor langt unna enemies spawner
-    private float range = 30f;
+    private float minRange = 30f;
+    private float maxRange = 40f;
 
     // difficulty
     public float DiffLevel;
 
+
+    private void Start()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            enemySpawner();
+        }
+        
+    }
     // slutter spillet ved å kalle en funksjon
     public void GameOver()
     {
@@ -51,7 +61,16 @@ public class GameController : MonoBehaviour
     public void enemySpawner()
     {
 
-        //Instantiate(Enemy,);
+        Instantiate(Enemy, enemyPosMethod(), Enemy.transform.rotation);
     }
+
+    public Vector3 enemyPosMethod()
+    {
+        float randAngle = UnityEngine.Random.Range(0, Mathf.PI*2);
+        float randRadius = UnityEngine.Random.Range(minRange, maxRange);
+
+
+        return new Vector3(Mathf.Cos(randAngle)*randRadius, Mathf.Sin(randAngle)*randRadius, 0);
+    }   
 
 }
