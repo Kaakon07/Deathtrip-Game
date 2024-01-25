@@ -34,11 +34,8 @@ public class XPOrbScript : MonoBehaviour
     void Update()
     {
         xpDistance = Vector3.Distance(Player.transform.position, transform.position);
-        if (xpDistance < autoRange)
-        {
-            xpDistance = xpDistance * 0.2f;
-            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, Mathf.Exp(-xpDistance*xpDistance) * 5 * Time.deltaTime);
-        }
+        xpDistance = xpDistance * 0.125f;
+        transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, Mathf.Exp(-xpDistance*xpDistance) * 5 * Time.deltaTime);
 
         // hvis den rører spilleren, gir den XP
         if (orbCollider.IsTouching(playerCollider))
