@@ -5363,9 +5363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 123613440}
   tileSet:
+  - {fileID: 11400000, guid: be008375919af734fa2e207b741a54d2, type: 2}
   - {fileID: 11400000, guid: 6e930aad6a816404b853aa1b52fa21eb, type: 2}
   - {fileID: 11400000, guid: 326b9db64e12de240b88a28102b5f0d8, type: 2}
-  - {fileID: 11400000, guid: be008375919af734fa2e207b741a54d2, type: 2}
   playerRB: {fileID: 0}
   moveScript: {fileID: 1215105983}
   libRand: {fileID: 999213360}
