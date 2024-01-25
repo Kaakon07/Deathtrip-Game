@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d428aa4f4f0361b45a3db19aca8db100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explode: {fileID: 7633702807444900643, guid: 1f2bd6ec9c0dc2740bfc7d15f71eb875, type: 3}
   Damage: 10
   range: 2
   pierce: 0

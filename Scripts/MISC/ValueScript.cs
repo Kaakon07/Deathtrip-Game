@@ -134,6 +134,7 @@ public class ValueScript : MonoBehaviour
         if (upgradeData.upgradeType == UpgradeType.BulletUpgrade)
         {
             Upgrades.Remove(upgradeData);
+
         }
         else
         {
@@ -230,6 +231,18 @@ public class ValueScript : MonoBehaviour
                 getUpgrade.Remove(getUpgrade[i]);
             }
 
+        }
+    }
+
+    public void recieveBulletUp()
+    {
+        for (int i = 0;  i < getUpgrade.Count; i++) 
+        {
+            if (getUpgrade[i].name == "rocket")
+            {
+                getUpgrade.Remove(getUpgrade[i]);
+                shooterScript.explode = true;
+            }
         }
     }
 

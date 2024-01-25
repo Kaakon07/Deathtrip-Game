@@ -46,12 +46,11 @@ public class BulletScript : MonoBehaviour
             bounce--;
             dealtDmg = false;
         }
-
-        if (ShootScript.explode == true)
+        if (collision.CompareTag("Enemy"))   
         {
-            if (collision.CompareTag("Enemy"))
+            if (ShootScript.explode == true)
             {
-                //instan
+                Instantiate(explode);
             }
         }
     }
