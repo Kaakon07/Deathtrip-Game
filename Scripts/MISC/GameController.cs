@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     public PauseScript PauseScreen;
     public GameObject Enemy;
     public GameObject Player;
+    public AudioMixer mixer;
 
     // hvor langt unna enemies spawner
     private float minRange = 30f;
@@ -22,10 +24,26 @@ public class GameController : MonoBehaviour
 
     // Enemy spawner timer!!! :D
     private float timer = 0;
-    private float threshhold = 7.4f;
+    private float threshhold = 1500f;
+
+    // enemy spawn amount
+    private int enemiesSpawnAmount;
 
 
 
+
+
+    private void Start()
+    {
+        enemiesSpawnAmount = 3;
+        for (int i = 0; i < Mathf.Floor(enemiesSpawnAmount); i++)
+        {
+            enemySpawner();
+
+        }
+        mixer.SetFloat("gameVolume", 0);
+
+    }
 
     // slutter spillet ved å kalle en funksjon
     public void GameOver()
@@ -40,24 +58,28 @@ public class GameController : MonoBehaviour
         // Difficulty timer
         DiffLevel = Mathf.Floor(Time.time * 0.01694915254f) + 1;
 
+        if (timer < threshhold)
+        {
+            timer += 1;
+        }
+        else
+        {
+            for (int i = 0; i < Mathf.Floor(enemiesSpawnAmount); i++)
+            {
+                enemySpawner();
+                
+            }
+            enemiesSpawnAmount += 2;
+            timer = 0;
+        }
 
-        
+
     }
 
     // sjekker om du trykker esc, om du gjør det pauser spillet, eller hvis spillet er pauset, upauser det
     public void Update()
     {
-        if (timer < threshhold) 
-        {
-            timer++;
-        }
-        else
-        {
-            for (int i = 0; i < Mathf.Floor(DiffLevel * 1.554f))
-            {
-                enemySpawner();
-            }
-        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape) && PauseScreen.Paused == false)
         {

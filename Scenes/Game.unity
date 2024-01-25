@@ -4370,6 +4370,7 @@ MonoBehaviour:
   PauseScreen: {fileID: 1896894836}
   Enemy: {fileID: 2681793036340761809, guid: b82700412b0787545a3823b0b4638b78, type: 3}
   Player: {fileID: 1215105981}
+  mixer: {fileID: 24100000, guid: d6b2439809be38142a18740aa197ee14, type: 2}
   DiffLevel: 0
 --- !u!4 &1624072380
 Transform:
@@ -4597,6 +4598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a5745e6ff481948a0cd2dc96420b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: d6b2439809be38142a18740aa197ee14, type: 2}
 --- !u!114 &1724192617
 MonoBehaviour:
   m_ObjectHideFlags: 0

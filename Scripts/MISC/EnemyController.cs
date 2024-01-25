@@ -26,10 +26,11 @@ public class EnemyController : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
     public GameObject XpOrb;
-    public GameObject Controller;
+    private GameObject Controller;
     private GameController gameControl;
     private SpriteRenderer spriteRenderer;
     private Color baseColor;
+    public GameObject drunk;
 
     // Timer
     private float timer = 0;
@@ -82,7 +83,7 @@ public class EnemyController : MonoBehaviour
         // hvis fienden rører spilleren, gjør den skade på spilleren
         if (timer < threshhold)
         {
-            timer++;
+            timer += 1;
         }
         else if (enemyCollider.IsTouching(playerCollider))
         {
@@ -99,6 +100,7 @@ public class EnemyController : MonoBehaviour
             {
                 Vector3 randomVals = new Vector3(Random.value,Random.value,0);
                 Instantiate(XpOrb, transform.position + randomVals, transform.rotation);
+                Instantiate(drunk,transform.position, transform.rotation);
                 aSource.PlayOneShot(deathClip,0.5f);
                 Destroy(gameObject);
             }

@@ -26,6 +26,7 @@ public class ValueScript : MonoBehaviour
     public AudioSource aSource;
     public AudioClip upgradeNoise;
     public AudioClip levelUpSound;
+    public DrunkBarScript drunkScript;
 
     // Initsialisering av lister, som lagrer oppgraderinger du velger, og vilke du har tatt
     public List<UpgradeData> Upgrades;
@@ -229,6 +230,15 @@ public class ValueScript : MonoBehaviour
                 getUpgrade.Remove(getUpgrade[i]);
             }
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("alchohol"))
+        {
+            drunkScript.Promille += 0.2f;
+            Destroy(collision.gameObject);
         }
     }
 }

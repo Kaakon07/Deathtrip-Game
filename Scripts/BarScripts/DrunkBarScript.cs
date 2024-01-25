@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class DrunkBarScript : MonoBehaviour
 {
+    //referanser
     public Slider drunkSlider;
-
-    [SerializeField] float Promille;
+    // promille level
+    public float Promille;
     public GameObject distortionField;
     public Material distortionMaterial;
-
     public ValueScript valuescript;
     
     
@@ -36,7 +36,7 @@ public class DrunkBarScript : MonoBehaviour
         }
         drunkSlider.value = Promille;
 
-
+        // skifter på skjermen baser på hvor full du er
         if (Promille >= 1)
         {
             valuescript.currentHealth = -999;
