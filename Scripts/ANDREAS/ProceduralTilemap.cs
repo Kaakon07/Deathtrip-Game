@@ -10,8 +10,8 @@ public class ProceduralTilemap : MonoBehaviour
 
     private GameObject player;
     private Vector3 playerPos;
-    private float tileColor;
     private Vector2 randTemp;
+
 
     public Tilemap tilemap;
     public TileBase[] tileSet;
@@ -35,6 +35,55 @@ public class ProceduralTilemap : MonoBehaviour
         checkChunkAndGenerate(new Vector3(-1, -1));
     }
 
+    bool tileRoad(Vector3Int tilePos, Vector2Int deltaPos)
+    {
+        randTemp = libRand.randomVector2FromVector2(tileToChunkPosition(tilePos));
+
+        if (deltaPos.x == 0 && randTemp.x > 0.5f) //Random.value
+        {
+            return true;
+        }
+        else
+        {
+            if (deltaPos.y == 0 && randTemp.y > 0.5f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    int tileConnect(Vector3Int tilePos, Vector2Int deltaPos)
+    {
+        if ( !tileRoad(tilePos, deltaPos))
+        {
+            return 0;
+        }
+        int tileConnectedCount = 0;
+        if ( tileRoad(tilePos + new Vector3Int(1, 0, 0), new Vector2Int((deltaPos.x + 1) & 7, (deltaPos.y) & 7)) )
+        {
+            tileConnectedCount += 1;
+        }
+        if (tileRoad(tilePos + new Vector3Int(0, 1, 0), new Vector2Int((deltaPos.x) & 7, (deltaPos.y + 1) & 7)))
+        {
+            tileConnectedCount += 2;
+        }
+        if (tileRoad(tilePos + new Vector3Int(-1, 0, 0), new Vector2Int((deltaPos.x - 1) & 7, (deltaPos.y) & 7)))
+        {
+            tileConnectedCount += 4;
+        }
+        if (tileRoad(tilePos + new Vector3Int(0, -1, 0), new Vector2Int((deltaPos.x) & 7, (deltaPos.y - 1) & 7)))
+        {
+            tileConnectedCount += 8;
+        }
+
+
+        return tileConnectedCount;
+    }
+
     void GenerateTilemap(int chunkX, int chunkY) // Generates the tilemap
     {
         for (int x = 0; x < 8; x++) // Loop for x axis
@@ -42,36 +91,21 @@ public class ProceduralTilemap : MonoBehaviour
             for (int y = 0; y < 8; y++) // Loop for y axis
             {
                 Vector3Int tilePosition = new Vector3Int( chunkX*8 + x, chunkY*8 + y, 0 ); // Creates a tile position variable
+                Vector2Int deltaPosition = new Vector2Int(x, y);
 
-                // Random tiles
-                //if (x == 3)
-                //{
-                //    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
-                //}
-                //else
-                //{
-                //    tilemap.SetTile( tilePosition, tileSet[ (int)(Random.value*2) ] );
-                //}
-
-                // 
                 tilemap.SetTile(tilePosition, tileSet[2]);
 
                 randTemp = libRand.randomVector2FromVector2(new Vector2Int(chunkX, chunkY));
 
-                tileColor = 0;
-                if (x == 0 && randTemp.x > 0.5f) //Random.value
-                {
-                    tileColor = 1;
-                }
-                else
-                {
-                    if (y == 0 && randTemp.y > 0.5f)
-                    {
-                        tileColor = 1;
-                    }
-                }
-
-                tilemap.SetColor(tilePosition, new Color(tileColor, tileColor, tileColor, 1));
+                //if (tileRoad(new Vector2Int(chunkX, chunkY), deltaPosition))
+                //{
+                //    tilemap.SetTile(tilePosition, tileSet[6]);
+                //}
+                //else
+                //{
+                //    tilemap.SetTile(tilePosition, tileSet[0]);
+                //}
+                tilemap.SetTile(tilePosition, tileSet[ tileConnect(tilePosition, deltaPosition) ]);
             }
         }
     }
@@ -79,6 +113,11 @@ public class ProceduralTilemap : MonoBehaviour
     Vector3Int unitToTilePosition(Vector3 unitPosition) // Converts unity units to tile position
     {
         return new Vector3Int((int)Mathf.Floor(unitPosition.x) >> 2, (int)Mathf.Floor(unitPosition.y) >> 2);
+    }
+
+    Vector2Int tileToChunkPosition(Vector3Int tilePosition)
+    {
+        return new Vector2Int((int)Mathf.Floor(tilePosition.x) >> 3, (int)Mathf.Floor(tilePosition.y) >> 3);
     }
 
     bool checkTileExists(Vector3 unitPosition) // Checks if the tile at unitPosition exists

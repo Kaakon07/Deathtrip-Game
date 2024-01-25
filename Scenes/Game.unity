@@ -3201,38 +3201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
-  m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
 --- !u!1 &1215105981
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,9 +5332,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 123613440}
   tileSet:
-  - {fileID: 11400000, guid: be008375919af734fa2e207b741a54d2, type: 2}
   - {fileID: 11400000, guid: 6e930aad6a816404b853aa1b52fa21eb, type: 2}
   - {fileID: 11400000, guid: 326b9db64e12de240b88a28102b5f0d8, type: 2}
+  - {fileID: 11400000, guid: db87f76a4f1c0d5479fce4177f7c2dfd, type: 2}
+  - {fileID: 11400000, guid: caf80bec21814ea48a9d386c051e2d25, type: 2}
+  - {fileID: 11400000, guid: 9b257ff046a59004580152edb5973f28, type: 2}
+  - {fileID: 11400000, guid: 78a87d0d4b9655f4f94576bde9494e21, type: 2}
+  - {fileID: 11400000, guid: 430f4150269d3cd4ba4d8e6b980485ee, type: 2}
+  - {fileID: 11400000, guid: d89cd0ebe5f2e72448814afd6f8b617c, type: 2}
+  - {fileID: 11400000, guid: d521e74d18d46c64bac7af14f33da5e4, type: 2}
+  - {fileID: 11400000, guid: 66a02634b6eb172478180997f933c653, type: 2}
+  - {fileID: 11400000, guid: 5fd63686a5cd5fd439db9ff849011755, type: 2}
+  - {fileID: 11400000, guid: f0ba7f7a242f7014a8b08d2a24970028, type: 2}
+  - {fileID: 11400000, guid: d550d28f84e233c44b2a7190afbf103e, type: 2}
+  - {fileID: 11400000, guid: 457b63b50b2c4de4caaf8fe39b09d513, type: 2}
+  - {fileID: 11400000, guid: 7ba8fd06f9e73f643bceb651e008d1e4, type: 2}
+  - {fileID: 11400000, guid: 12874ffb029c2f54caf9020c6a8c648a, type: 2}
+  - {fileID: 11400000, guid: be008375919af734fa2e207b741a54d2, type: 2}
   playerRB: {fileID: 0}
   moveScript: {fileID: 1215105983}
   libRand: {fileID: 999213360}
