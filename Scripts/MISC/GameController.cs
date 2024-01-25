@@ -47,6 +47,17 @@ public class GameController : MonoBehaviour
     // sjekker om du trykker esc, om du gjør det pauser spillet, eller hvis spillet er pauset, upauser det
     public void Update()
     {
+        if (timer < threshhold) 
+        {
+            timer++;
+        }
+        else
+        {
+            for (int i = 0; i < Mathf.Floor(DiffLevel * 1.554f))
+            {
+                enemySpawner();
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape) && PauseScreen.Paused == false)
         {
