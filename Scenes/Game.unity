@@ -3284,6 +3284,7 @@ MonoBehaviour:
   aSource: {fileID: 1215105989}
   upgradeNoise: {fileID: 8300000, guid: f4d93aaef291bf6489007adbb4bee52f, type: 3}
   levelUpSound: {fileID: 8300000, guid: 26ce1e992cb8ea940b0f13b3b97809f5, type: 3}
+  drunkScript: {fileID: 1504129059}
   Upgrades:
   - {fileID: 11400000, guid: 7c1996a841b277f4eb3e8130e7779cdd, type: 2}
   - {fileID: 11400000, guid: eb9bacb8847174d44b64309ffd4dc156, type: 2}
@@ -5217,7 +5218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1977510825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5279,7 +5280,7 @@ RectTransform:
   m_GameObject: {fileID: 1977510824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 56.5488, y: 31.33728, z: 2.4}
+  m_LocalScale: {x: -68.65378, y: 31.33728, z: 2.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

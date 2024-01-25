@@ -238,7 +238,7 @@ public class ValueScript : MonoBehaviour
         if (collision.CompareTag("alchohol"))
         {
             drunkScript.Promille += 0.2f;
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
         }
     }
 }
