@@ -35,53 +35,52 @@ public class ProceduralTilemap : MonoBehaviour
         checkChunkAndGenerate(new Vector3(-1, -1));
     }
 
-    bool tileRoad(Vector3Int tilePos, Vector2Int deltaPos)
+    bool tileRoad(Vector3Int tilePos, Vector2Int deltaPos) // Checks if the current tile lies on the road or in the sand
     {
-        randTemp = libRand.randomVector2FromVector2(tileToChunkPosition(tilePos));
+        randTemp = libRand.randomVector2FromVector2(tileToChunkPosition(tilePos)); // Creates a random Vector2Int
 
-        if (deltaPos.x == 0 && randTemp.x > 0.5f) //Random.value
+        if (deltaPos.x == 0 && randTemp.x > 0.5f) // Checks if randTemp is true and the tile lies on the left edge of the chunk
         {
             return true;
         }
         else
         {
-            if (deltaPos.y == 0 && randTemp.y > 0.5f)
+            if (deltaPos.y == 0 && randTemp.y > 0.5f) // Checks if randTemp is true and the tile lies on the bottom edge of the chunk
             {
                 return true;
             }
             else
             {
-                return false;
+                return false; // Returns false if the tile is sand
             }
         }
     }
 
-    int tileConnect(Vector3Int tilePos, Vector2Int deltaPos)
+    int tileConnect(Vector3Int tilePos, Vector2Int deltaPos) // Connects textures
     {
-        if ( !tileRoad(tilePos, deltaPos))
+        if ( !tileRoad(tilePos, deltaPos) ) // Checks if the tile is road or sand
         {
             return 0;
         }
         int tileConnectedCount = 0;
-        if ( tileRoad(tilePos + new Vector3Int(1, 0, 0), new Vector2Int((deltaPos.x + 1) & 7, (deltaPos.y) & 7)) )
+        if ( tileRoad(tilePos + new Vector3Int(1, 0, 0), new Vector2Int((deltaPos.x + 1) & 7, (deltaPos.y) & 7)) ) // Checks the tile to the right
         {
             tileConnectedCount += 1;
         }
-        if (tileRoad(tilePos + new Vector3Int(0, 1, 0), new Vector2Int((deltaPos.x) & 7, (deltaPos.y + 1) & 7)))
+        if ( tileRoad(tilePos + new Vector3Int(0, 1, 0), new Vector2Int((deltaPos.x) & 7, (deltaPos.y + 1) & 7)) ) // Checks the tile above
         {
             tileConnectedCount += 2;
         }
-        if (tileRoad(tilePos + new Vector3Int(-1, 0, 0), new Vector2Int((deltaPos.x - 1) & 7, (deltaPos.y) & 7)))
+        if ( tileRoad(tilePos + new Vector3Int(-1, 0, 0), new Vector2Int((deltaPos.x - 1) & 7, (deltaPos.y) & 7)) ) // Checks the tile to the left
         {
             tileConnectedCount += 4;
         }
-        if (tileRoad(tilePos + new Vector3Int(0, -1, 0), new Vector2Int((deltaPos.x) & 7, (deltaPos.y - 1) & 7)))
+        if ( tileRoad(tilePos + new Vector3Int(0, -1, 0), new Vector2Int((deltaPos.x) & 7, (deltaPos.y - 1) & 7)) ) // Checks the tile below
         {
             tileConnectedCount += 8;
         }
 
-
-        return tileConnectedCount;
+        return tileConnectedCount; // Returns index
     }
 
     void GenerateTilemap(int chunkX, int chunkY) // Generates the tilemap
@@ -91,21 +90,9 @@ public class ProceduralTilemap : MonoBehaviour
             for (int y = 0; y < 8; y++) // Loop for y axis
             {
                 Vector3Int tilePosition = new Vector3Int( chunkX*8 + x, chunkY*8 + y, 0 ); // Creates a tile position variable
-                Vector2Int deltaPosition = new Vector2Int(x, y);
+                Vector2Int deltaPosition = new Vector2Int(x, y); // Creates a vector that represents where the tile lies in the chunk
 
-                tilemap.SetTile(tilePosition, tileSet[2]);
-
-                randTemp = libRand.randomVector2FromVector2(new Vector2Int(chunkX, chunkY));
-
-                //if (tileRoad(new Vector2Int(chunkX, chunkY), deltaPosition))
-                //{
-                //    tilemap.SetTile(tilePosition, tileSet[6]);
-                //}
-                //else
-                //{
-                //    tilemap.SetTile(tilePosition, tileSet[0]);
-                //}
-                tilemap.SetTile(tilePosition, tileSet[ tileConnect(tilePosition, deltaPosition) ]);
+                tilemap.SetTile(tilePosition, tileSet[ tileConnect(tilePosition, deltaPosition) ]); // Generates a tile
             }
         }
     }
@@ -115,7 +102,7 @@ public class ProceduralTilemap : MonoBehaviour
         return new Vector3Int((int)Mathf.Floor(unitPosition.x) >> 2, (int)Mathf.Floor(unitPosition.y) >> 2);
     }
 
-    Vector2Int tileToChunkPosition(Vector3Int tilePosition)
+    Vector2Int tileToChunkPosition(Vector3Int tilePosition) // Converts tiles to chunks
     {
         return new Vector2Int((int)Mathf.Floor(tilePosition.x) >> 3, (int)Mathf.Floor(tilePosition.y) >> 3);
     }
