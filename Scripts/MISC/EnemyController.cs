@@ -102,6 +102,7 @@ public class EnemyController : MonoBehaviour
                 Instantiate(XpOrb, transform.position + randomVals, transform.rotation);
                 Instantiate(drunk,transform.position, transform.rotation);
                 aSource.PlayOneShot(deathClip,0.5f);
+                gameControl.enemiesKilled += 1;
                 Destroy(gameObject);
             }
 

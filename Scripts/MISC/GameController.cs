@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public AudioMixer mixer;
     public ValueScript vScript;
     public EnemyController enemyController;
+    public DrunkBarScript drunkBar;
 
     // hvor langt unna enemies spawner
     private float minRange = 30f;
@@ -32,7 +33,8 @@ public class GameController : MonoBehaviour
     private int enemiesSpawnAmount;
 
     // Scores
-    
+    public int enemiesKilled;
+    public int HighScore;
 
 
 
@@ -40,6 +42,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        HighScore = 0;
+        DiffLevel = 0;
+        enemiesKilled = 0;
         enemiesSpawnAmount = 3;
         for (int i = 0; i < Mathf.Floor(enemiesSpawnAmount); i++)
         {
@@ -76,6 +81,10 @@ public class GameController : MonoBehaviour
             timer = 0;
         }
 
+        HighScore = (((int)DiffLevel * 100) + (enemiesKilled * 5) + ((int)vScript.Level *10)) - ((int)drunkBar.totalPromille * 5);
+        
+
+
 
     }
 
@@ -92,6 +101,7 @@ public class GameController : MonoBehaviour
         {
             PauseScreen.UnPause();
         }
+        Debug.Log(HighScore);
     }
 
     public void enemySpawner()

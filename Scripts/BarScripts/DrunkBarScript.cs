@@ -9,6 +9,7 @@ public class DrunkBarScript : MonoBehaviour
     public Slider drunkSlider;
     // promille level
     public float Promille;
+    public float totalPromille;
     public GameObject distortionField;
     public Material distortionMaterial;
     public ValueScript valuescript;
@@ -18,6 +19,7 @@ public class DrunkBarScript : MonoBehaviour
     void Start()
     {
         Promille = 0;
+        totalPromille = 0;
         distortionMaterial = distortionField.GetComponent<SpriteRenderer>().material;
 
     }

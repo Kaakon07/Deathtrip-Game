@@ -241,6 +241,7 @@ public class ValueScript : MonoBehaviour
         if (collision.CompareTag("alchohol"))
         {
             drunkScript.Promille += 0.01f;
+            drunkScript.totalPromille += 0.01f;
             
         }
     }
