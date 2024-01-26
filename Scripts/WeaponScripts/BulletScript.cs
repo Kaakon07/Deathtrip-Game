@@ -73,12 +73,12 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))   
+        if (collision.CompareTag("Enemy"))
         {
-            if (ShootScript.explode == true)
-            {
-                Instantiate(explode);
-            }
+            //if (ShootScript.explode == true)
+            //{
+            //    Instantiate(explode);
+            //}
         }
     }
 }
