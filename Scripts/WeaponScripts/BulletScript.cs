@@ -8,8 +8,8 @@ public class BulletScript : MonoBehaviour
     private GameObject Player;
     private ShooterScript ShootScript;
     private Rigidbody2D rb;
+    private Rigidbody2D rigidBody;
     public GameObject explode;
-    //private Camera camera;
     
 
     // Stats
@@ -18,8 +18,14 @@ public class BulletScript : MonoBehaviour
     public int pierce;
     public int bounce;
 
+    // Screen resolution
+    //Vector2 screenRes = new Vector2((float)Camera.main.pixelWidth, (float)Camera.main.pixelWidth);
+
     // om den har gjort skade eller ikke
     public bool dealtDmg = false;
+
+    Vector3 bulletPos;
+    Vector3 playerPos;
 
     private void Start()
     {
@@ -39,16 +45,34 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, range);
     }
 
+    private void FixedUpdate()
+    {
+        bulletPos = rb.transform.position;
+        playerPos = Player.transform.position;
+
+        if (bounce > 0)
+        {
+            if (bulletPos.x < playerPos.x - 27 | bulletPos.x > playerPos.x + 27) // 27 x 15.1875
+            {
+                Debug.Log("bullet has hit the wall");
+                rb.velocity = new Vector2(0 - rb.velocity.x, rb.velocity.y);
+                rb.rotation = Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.y, rb.velocity.x) - 90;
+                bounce--;
+                dealtDmg = false;
+            }
+            if (bulletPos.y < playerPos.y - 15.1875f | bulletPos.y > playerPos.y + 15.1875f) // 27 x 15.1875
+            {
+                Debug.Log("bullet has hit the wall");
+                rb.velocity = new Vector2(rb.velocity.x, 0 - rb.velocity.y);
+                rb.rotation = Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.y, rb.velocity.x) - 90;
+                bounce--;
+                dealtDmg = false;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("BounceWall") && bounce > 0)
-        {
-            rb.velocity = rb.velocity * -1;
-            bounce--;
-            dealtDmg = false;
-        }
-
-
         if (collision.CompareTag("Enemy"))   
         {
             if (ShootScript.explode == true)

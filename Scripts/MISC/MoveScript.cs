@@ -18,6 +18,7 @@ public class MoveScript : MonoBehaviour
     public Rigidbody2D rb;
     public Vector3 previousPlayerPosition;
 
+
     // Update is called once per frame
     void Update()
     {

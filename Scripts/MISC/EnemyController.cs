@@ -138,10 +138,6 @@ public class EnemyController : MonoBehaviour
                 bulletScript.dealtDmg = false;
                 bulletScript.pierce -= 1;
             }
-            else if (bulletScript.bounce > 0)
-            {
-                // stopper spilelt fra å ødelegge objected vis det kan sprette
-            }
             else
             {
                 // ødelegger skuddet
