@@ -8,7 +8,6 @@ public class BulletScript : MonoBehaviour
     private GameObject Player;
     private ShooterScript ShootScript;
     private Rigidbody2D rb;
-    private Rigidbody2D rigidBody;
     public GameObject explode;
     
 
@@ -17,9 +16,6 @@ public class BulletScript : MonoBehaviour
     public float range;
     public int pierce;
     public int bounce;
-
-    // Screen resolution
-    //Vector2 screenRes = new Vector2((float)Camera.main.pixelWidth, (float)Camera.main.pixelWidth);
 
     // om den har gjort skade eller ikke
     public bool dealtDmg = false;
