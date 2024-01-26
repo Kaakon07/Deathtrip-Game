@@ -10,6 +10,7 @@ public class DrunkBarScript : MonoBehaviour
     // promille level
     public float Promille;
     public float totalPromille;
+    public Vector4 distortionSpeed;
     public GameObject distortionField;
     public Material distortionMaterial;
     public ValueScript valuescript;
@@ -40,44 +41,21 @@ public class DrunkBarScript : MonoBehaviour
 
         // skifter på skjermen baser på hvor full du er
 
-        // DistortionSpeed = (Mathf.Pow(2, Promille), Mathf.Pow(2*Promille, 2)/64, 0, 0);
-        // DistortionPower = ((Mathf.Pow(2, Promille)-1) * Promille, Mathf.Pow(2*Promille, 2)/64, 0, 0);
-
 
         if (Promille >= 1)
         {
             valuescript.currentHealth = -999;
             distortionField.SetActive(false);
         }
-        // else if (Promille >= 0.9) 
-        // {
-        //     distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.75f, 0.15f, 0f, 0f));
-        //     distortionMaterial.SetVector("DistortionPower", new Vector4(0.75f, 0.15f, 0f, 0f));
-        // 
-        // }
-        // else if (Promille >= 0.8)
-        // {
-        //     distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.25f, 0.10f, 0f, 0f));
-        //     distortionMaterial.SetVector("DistortionPower", new Vector4(0.40f, 0.10f, 0f, 0f));
-        // 
-        // }
-        // else if (Promille >= 0.5)
-        // {
-        //     distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.10f, 0.01f, 0f, 0f));
-        //     distortionMaterial.SetVector("DistortionPower", new Vector4(0.20f, 0.01f, 0f, 0f));
-        // 
-        // }
-        // else if (Promille >= 0.2)
-        // {
-        //     distortionMaterial.SetVector("DistortionSpeed", new Vector4(0.05f, 0f, 0f, 0f));
-        //     distortionMaterial.SetVector("DistortionPower", new Vector4(0.10f, 0f, 0f, 0f));
-        // 
-        // }
         else if (Promille > 0)
         {
-            distortionMaterial.SetVector("DistortionSpeed", new Vector4( Mathf.Pow( Mathf.Pow(2, Promille)-1, 2 ), Mathf.Pow(2 * Promille, 4) / 64, 0f, 0f) );
+            distortionSpeed = new Vector4(Mathf.Pow(Mathf.Pow(2, Promille) - 1, 2), Mathf.Pow(2 * Promille, 4) * 0.015625f, 0f, 0f)*0.0078125f;
+            distortionMaterial.SetVector("DistortionSpeed", distortionSpeed);
+            distortionMaterial.SetVector("DistortionPosition", distortionMaterial.GetVector("DistortionPosition") + distortionSpeed);
             distortionMaterial.SetVector("DistortionPower", new Vector4( (Mathf.Pow(2, Promille) - 1) * Promille, Mathf.Pow(2 * Promille, 4) / 64, 0f, 0f) );
             distortionField.SetActive(true);
+            Debug.Log(distortionMaterial.GetVector("DistortionPosition").ToString());
+            Debug.Log(distortionSpeed);
         }
         else
         {

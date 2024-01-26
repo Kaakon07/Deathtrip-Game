@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
             timer = 0;
         }
 
-        HighScore = (((int)DiffLevel * 100) + (enemiesKilled * 5) + ((int)vScript.Level *10)) - ((int)drunkBar.totalPromille * 5);
+        //HighScore = (((int)DiffLevel * 100) + (enemiesKilled * 5) + ((int)vScript.Level *10)) - ((int)drunkBar.totalPromille * 5);
         
 
 
@@ -101,7 +101,7 @@ public class GameController : MonoBehaviour
         {
             PauseScreen.UnPause();
         }
-        Debug.Log(HighScore);
+        //Debug.Log(HighScore);
     }
 
     public void enemySpawner()
