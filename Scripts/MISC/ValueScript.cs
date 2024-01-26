@@ -234,17 +234,6 @@ public class ValueScript : MonoBehaviour
         }
     }
 
-    public void recieveBulletUp()
-    {
-        for (int i = 0;  i < acquiredUpgrades.Count; i++) 
-        {
-            if (acquiredUpgrades[i].name == "rocket")
-            {
-                acquiredUpgrades.Remove(acquiredUpgrades[i]);
-                shooterScript.explode = true;
-            }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

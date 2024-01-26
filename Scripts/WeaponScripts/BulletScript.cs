@@ -41,20 +41,12 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Får skudddet til å sprette
         if (collision.CompareTag("BounceWall") && bounce > 0)
         {
             rb.velocity = rb.velocity * -1;
             bounce--;
             dealtDmg = false;
-        }
-
-
-        if (collision.CompareTag("Enemy"))   
-        {
-            if (ShootScript.explode == true)
-            {
-                Instantiate(explode);
-            }
         }
     }
 }
