@@ -235,12 +235,13 @@ public class ValueScript : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("alchohol"))
         {
-            drunkScript.Promille += 0.2f;
-            //Destroy(collision.gameObject);
+            drunkScript.Promille += 0.01f;
+            
         }
     }
 }

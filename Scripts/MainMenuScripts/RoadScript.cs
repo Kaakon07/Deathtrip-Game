@@ -10,6 +10,7 @@ public class RoadScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1.0f;
         // får objektet til å bevege seg nedover
         rb.AddForce(new Vector3(0,(Speed * -1),0));
     }

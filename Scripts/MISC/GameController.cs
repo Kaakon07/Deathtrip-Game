@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject Player;
     public AudioMixer mixer;
     public ValueScript vScript;
+    public EnemyController enemyController;
 
     // hvor langt unna enemies spawner
     private float minRange = 30f;
@@ -30,6 +31,9 @@ public class GameController : MonoBehaviour
     // enemy spawn amount
     private int enemiesSpawnAmount;
 
+    // Scores
+    
+
 
 
 
@@ -42,6 +46,7 @@ public class GameController : MonoBehaviour
             enemySpawner();
         }
         mixer.SetFloat("gameVolume", 0);
+        Time.timeScale = 1.0f;
 
     }
 
@@ -55,7 +60,7 @@ public class GameController : MonoBehaviour
     private void FixedUpdate()
     {
         // Difficulty timer
-        DiffLevel = Mathf.Floor(Time.time * 0.01694915254f) + 1;
+        DiffLevel = Mathf.Floor(Time.timeSinceLevelLoad * 0.01694915254f) + 1;
 
         if (timer < threshhold)
         {
