@@ -11,7 +11,9 @@ public class UpgradableScript : MonoBehaviour
     public GameObject player;
 
     // Lager en liste som du putter teksten du vill skifte i
-    public List<UpgradeButton> upgradeButton;
+    public List<UpgradeButton> upgradeText;
+
+    public List<UpgradeButton> upgradeImage;
 
     // Metode som lar deg legge till et nummer til en predefinert stat
     public void StatUpgrade(float stat, float newStat)
@@ -34,7 +36,7 @@ public class UpgradableScript : MonoBehaviour
         // skifter teksten på oppgraderings menyen til vilken oppgradering den har valgt
         for (int i = 0; i < upgradeData.Count; i++)
         {
-            upgradeButton[i].SetText(upgradeData[i]);
+            upgradeText[i].SetText(upgradeData[i]);
         }
 
 
@@ -43,10 +45,15 @@ public class UpgradableScript : MonoBehaviour
     // setter all teksten till null
     public void Clean()
     {
-        for (int i=0;i <upgradeButton.Count;i++) 
+        for (int i=0;i < upgradeText.Count;i++) 
         {
-            upgradeButton[i].Clean();
+            upgradeText[i].Clean();
         }
+        for (int i = 0; i < upgradeImage.Count; i++)
+        {
+            upgradeText[i].Clean();
+        }
+
     }
 
 

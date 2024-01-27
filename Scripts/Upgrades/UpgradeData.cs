@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Lager en enum med navnet upgradeType
 public enum UpgradeType
@@ -16,4 +17,5 @@ public class UpgradeData : ScriptableObject
     public string Name;
     public string statType;
     public float amount;
+    public Sprite upgradePic;
 }
