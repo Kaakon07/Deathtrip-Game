@@ -16,3 +16,4 @@ MonoBehaviour:
   Name: Rocket
   statType: firespeed
   amount: -250
+  upgradePic: {fileID: 0}

@@ -1,4 +1,4 @@
-    using System.Collections;
+        using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,11 +9,12 @@ public class UpgradableScript : MonoBehaviour
     public BulletScript bulletScript;
     public ValueScript valueScript;
     public GameObject player;
+    
 
     // Lager en liste som du putter teksten du vill skifte i
     public List<UpgradeButton> upgradeText;
 
-    public List<UpgradeButton> upgradeImage;
+    public List<UpgradeImage> upgradeImage;
 
     // Metode som lar deg legge till et nummer til en predefinert stat
     public void StatUpgrade(float stat, float newStat)
@@ -38,6 +39,10 @@ public class UpgradableScript : MonoBehaviour
         {
             upgradeText[i].SetText(upgradeData[i]);
         }
+        for (int i = 0; i < upgradeData.Count; i++)
+        {
+            upgradeImage[i].SetImage(upgradeData[i]);
+        }
 
 
 
@@ -51,7 +56,7 @@ public class UpgradableScript : MonoBehaviour
         }
         for (int i = 0; i < upgradeImage.Count; i++)
         {
-            upgradeText[i].Clean();
+            upgradeImage[i].CleanImage();
         }
 
     }
