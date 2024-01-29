@@ -65,6 +65,9 @@ public class ShooterScript : MonoBehaviour
 
     private void Fire()
     {
+
+        Quaternion newRot = firePoint.rotation;
+        int spread = 10;
         // hvor ofte bilen skyter
         if (timer < FireSpeed)
         {
@@ -76,25 +79,37 @@ public class ShooterScript : MonoBehaviour
             // lager en kopi av "Bullet" prefabben, så setter start posisjonen og rotasjonen
             for (int i = 0; i < shots; i++)
             {
-                if(shots > 1)
-                {
-                    GameObject bulletClone = Instantiate(bullet, firePoint.transform.position, Quaternion.Euler(0, 0, lookAngle - 90));
-                    aSource.PlayOneShot(shootSound);
-                    bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * Time.deltaTime * firePoint.right;
-                }
-                else
-                {
-                    GameObject bulletClone = Instantiate(bullet, firePoint.transform.position, Quaternion.Euler(0, 0, lookAngle - 90));
-                    aSource.PlayOneShot(shootSound);
-                    bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * Time.deltaTime * firePoint.right;
-                }
+                // Calculate spread angle
+                float angle = (i - (shots / 2)) * spread;
 
-                
+                // Calculate direction towards the mouse
+                Vector2 directionToMouse = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)firePoint.position;
+                directionToMouse.Normalize();
+
+                // Apply spread to the direction
+                float spreadAngle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg + angle;
+                Vector2 newDirection = new Vector2(Mathf.Cos(spreadAngle * Mathf.Deg2Rad), Mathf.Sin(spreadAngle * Mathf.Deg2Rad));
+
+                // Calculate rotation based on the calculated direction
+                float rotation = Mathf.Atan2(newDirection.y, newDirection.x) * Mathf.Rad2Deg;
+                Quaternion bulletRotation = Quaternion.Euler(0f, 0f, rotation);
+
+                // Instantiate bullet and set rotation and velocity based on the calculated direction
+                GameObject bulletClone = Instantiate(bullet, firePoint.transform.position, bulletRotation);
+                aSource.PlayOneShot(shootSound);
+                bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * newDirection * Time.deltaTime;
             }
+
+
             timer = 0;
-
-            // Får skuddet til å dra fremmover
-
         }
+                
+                
+            
+            
+
+            
+
+        
     }
 }
