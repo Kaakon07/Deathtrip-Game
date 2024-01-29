@@ -197,6 +197,7 @@ public class ValueScript : MonoBehaviour
         }
 
         // legger til en tilfeldig oppgradering til de du kan få
+        Debug.Log(findUpgradeRaritySum().ToString());
         for (int i = 0; i < count; i++)
         {
             upgradeList.Add(Upgrades[findUpgradeFromIndex(Random.Range(0, findUpgradeRaritySum()))]); //Random.Range(0, Upgrades.Count)

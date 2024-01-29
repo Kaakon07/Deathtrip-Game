@@ -3874,6 +3874,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bae5723b3d0969d478073bed8eba1a2e, type: 2}
   - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
   - {fileID: 11400000, guid: d675dd92719f3894bb388560fd95d19b, type: 2}
+  - {fileID: 11400000, guid: 4a40f5ca48cb4a442a729f1be338d9eb, type: 2}
   acquiredUpgrades: []
   getUpgrade: []
 --- !u!114 &1215105983
@@ -6028,7 +6029,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -312997397
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
