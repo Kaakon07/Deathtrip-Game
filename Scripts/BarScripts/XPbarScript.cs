@@ -12,7 +12,6 @@ public class XPbarScript : MonoBehaviour
     public void SetMaxXp(float xp)
     {
         XPSlider.maxValue = xp;
-        
     }
 
     // setter verdien

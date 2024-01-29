@@ -94,7 +94,7 @@ public class ValueScript : MonoBehaviour
     {
 
         // sjekker om du har nokk til og levele opp
-        if(currentExp > maxExp-1)
+        if(currentExp >= maxExp)
         {
             aSource.PlayOneShot(levelUpSound);
             // sjekker om selectedUpgrades er tom, og om den er det, gir den verdien av en liste med enumen UpgradeData som type
