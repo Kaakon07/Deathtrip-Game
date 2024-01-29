@@ -33,6 +33,8 @@ public class BulletScript : MonoBehaviour
         pierce = ShootScript.pierce;
         bounce = ShootScript.bounce;
 
+        
+
     }
 
     // Update is called once per frame

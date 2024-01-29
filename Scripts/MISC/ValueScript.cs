@@ -251,6 +251,10 @@ public class ValueScript : MonoBehaviour
                 shooterScript.pierce     += (int)getUpgrade[i].amount;
                 getUpgrade.Remove(getUpgrade[i]);
             }
+            else if (getUpgrade[i].statType == "shots")
+            {
+                shooterScript.shots += (int)getUpgrade[i].amount;
+            }
 
         }
     }
