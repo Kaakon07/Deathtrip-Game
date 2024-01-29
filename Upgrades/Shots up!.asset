@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: Shots up!
   statType: shots
   amount: 1
-  Rarity: 1
+  Rarity: 16
   upgradePic: {fileID: 0}
