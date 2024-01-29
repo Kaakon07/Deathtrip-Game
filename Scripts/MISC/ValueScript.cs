@@ -254,6 +254,7 @@ public class ValueScript : MonoBehaviour
             else if (getUpgrade[i].statType == "shots")
             {
                 shooterScript.shots += (int)getUpgrade[i].amount;
+                getUpgrade.Remove(getUpgrade[i]);
             }
 
         }
