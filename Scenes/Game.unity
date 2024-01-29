@@ -738,7 +738,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 10
+          m_FloatArgument: 64
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4823,7 +4823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Give 100 Xp
+  m_Text: Give 64 Xp
 --- !u!222 &1514715075
 CanvasRenderer:
   m_ObjectHideFlags: 0

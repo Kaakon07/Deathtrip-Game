@@ -16,3 +16,5 @@ MonoBehaviour:
   Name: Pierce UP!
   statType: pierce
   amount: 1
+  Rarity: 2
+  upgradePic: {fileID: 0}

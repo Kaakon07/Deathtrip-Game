@@ -163,6 +163,27 @@ public class ValueScript : MonoBehaviour
         }
     }
 
+    public int findUpgradeFromIndex(float index)
+    {
+        int listIndex = Upgrades.Count-1;
+        while (index > 0)
+        {
+            index -= Upgrades[listIndex].Rarity;
+            listIndex--;
+        }
+        return listIndex+1;
+    }
+
+    public float findUpgradeRaritySum()
+    {
+        float raritySum = 0;
+        for (int listIndex = 0; listIndex < Upgrades.Count; listIndex++)
+        {
+            raritySum += Upgrades[listIndex].Rarity;
+        }
+        return raritySum;
+    }
+
     // Henter de mulige oppgraderingene, og legger det til en liste, som heter upgradeList
     public List<UpgradeData> GetUpgrade(int count)
     {
@@ -178,7 +199,7 @@ public class ValueScript : MonoBehaviour
         // legger til en tilfeldig oppgradering til de du kan få
         for (int i = 0; i < count; i++)
         {
-            upgradeList.Add(Upgrades[Random.Range(0, Upgrades.Count)]);
+            upgradeList.Add(Upgrades[findUpgradeFromIndex(Random.Range(0, findUpgradeRaritySum()))]); //Random.Range(0, Upgrades.Count)
         }
         
         // returner upgradeList

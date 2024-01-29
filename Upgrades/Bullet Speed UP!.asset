@@ -16,3 +16,5 @@ MonoBehaviour:
   Name: Bullet Speed UP!
   statType: bulletspeed
   amount: 40
+  Rarity: 4
+  upgradePic: {fileID: 0}

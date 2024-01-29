@@ -16,4 +16,5 @@ MonoBehaviour:
   Name: Rocket
   statType: firespeed
   amount: -250
+  Rarity: 1
   upgradePic: {fileID: 0}
