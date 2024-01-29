@@ -27,6 +27,7 @@ public class ShooterScript : MonoBehaviour
     public float range = 2;
     public int pierce = 0;
     public int bounce = 0;
+    public int shots = 1;
 
  
 
@@ -59,6 +60,11 @@ public class ShooterScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Fire();
+    }
+
+    private void Fire()
+    {
         // hvor ofte bilen skyter
         if (timer < FireSpeed)
         {
@@ -68,14 +74,27 @@ public class ShooterScript : MonoBehaviour
         else
         {
             // lager en kopi av "Bullet" prefabben, så setter start posisjonen og rotasjonen
-            GameObject bulletClone = Instantiate(bullet);
-            aSource.PlayOneShot(shootSound);
-            bulletClone.transform.position = firePoint.position;
-            bulletClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle-90);
+            for (int i = 0; i < shots; i++)
+            {
+                if(shots > 1)
+                {
+                    GameObject bulletClone = Instantiate(bullet, firePoint.transform.position, Quaternion.Euler(0, 0, lookAngle - 90));
+                    aSource.PlayOneShot(shootSound);
+                    bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * Time.deltaTime * firePoint.right;
+                }
+                else
+                {
+                    GameObject bulletClone = Instantiate(bullet, firePoint.transform.position, Quaternion.Euler(0, 0, lookAngle - 90));
+                    aSource.PlayOneShot(shootSound);
+                    bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * Time.deltaTime * firePoint.right;
+                }
+
+                
+            }
+            timer = 0;
 
             // Får skuddet til å dra fremmover
-            bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * Time.deltaTime * firePoint.right;
-            timer = 0;
+
         }
     }
 }
