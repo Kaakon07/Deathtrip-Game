@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour
     private void FixedUpdate()
     {
         // Difficulty timer
-        DiffLevel = Mathf.Floor(Time.timeSinceLevelLoad * 0.01694915254f) + 1;
+        DiffLevel = Mathf.Floor(Time.timeSinceLevelLoad * 0.01694915254f);
 
         if (timer < threshhold)
         {
@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
             timer = 0;
         }
 
-        //HighScore = (((int)DiffLevel * 100) + (enemiesKilled * 5) + ((int)vScript.Level *10)) - ((int)drunkBar.totalPromille * 5);
+        HighScore = (((int)DiffLevel * 100) + (enemiesKilled * 5) + ((int)vScript.Level *10)) - ((int)drunkBar.totalPromille * 5);
         
 
 

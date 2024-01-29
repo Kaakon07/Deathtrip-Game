@@ -18,7 +18,6 @@ public class ValueScript : MonoBehaviour
     // Referanser til til spillobjekter og andre scripter
     public HealthBarScript healthBar;
     public GameController gameController;
-    public XPbarScript xpBar;
     public UpgradableScript upgradableScript;
     public HpText hpText;
     public MoveScript moveScript;
@@ -52,8 +51,7 @@ public class ValueScript : MonoBehaviour
 
         
 
-        // Setter max verdien til spilobjektet "xpBar"
-        xpBar.SetMaxXp(maxExp);
+
     }
 
     // Update is called once per frame
@@ -63,7 +61,7 @@ public class ValueScript : MonoBehaviour
         maxExp = 100 * Mathf.Pow(2, Level / 8);
 
         // skifter konstant maxHp og maxXP til hp baren og xp baren
-        xpBar.SetMaxXp(maxExp);
+        
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
         if (currentHealth < maxHealth)
@@ -71,8 +69,6 @@ public class ValueScript : MonoBehaviour
             currentHealth += 0.5f * Time.deltaTime;
         }
 
-        // sette nåtidlige XPen din til nåtidlige XPen til XP baren
-        xpBar.SetXP(currentExp);
 
         //Kaller en funksjon som sjekker om du er død, og om du har nokk XP til å levele opp
         endGame();

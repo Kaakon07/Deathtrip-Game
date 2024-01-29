@@ -64,9 +64,9 @@ public class EnemyController : MonoBehaviour
         baseColor = spriteRenderer.color;
 
         // Vanskelighets Skala
-        maxHealth = 20 + (4 * gameControl.DiffLevel - 1);
+        maxHealth = 20 + (4 * gameControl.DiffLevel);
         health = maxHealth;
-        damage = 20 + (2 * gameControl.DiffLevel - 1);
+        damage = 20 + (2 * gameControl.DiffLevel);
 
 
 }
@@ -96,7 +96,7 @@ public class EnemyController : MonoBehaviour
         // hvis fiended har helse av 0 eller mindre, forsvinner den og lager en XP orb
         if (health <= 0)
         {
-            for (int i = 0; i < gameControl.DiffLevel; i++) 
+            for (int i = 0; i < gameControl.DiffLevel+1; i++) 
             {
                 Vector3 randomVals = new Vector3(Random.value,Random.value,0);
                 Instantiate(XpOrb, transform.position + randomVals, transform.rotation);
@@ -105,7 +105,7 @@ public class EnemyController : MonoBehaviour
                 gameControl.enemiesKilled += 1;
                 Destroy(gameObject);
             }
-
+            
         }
 
 
