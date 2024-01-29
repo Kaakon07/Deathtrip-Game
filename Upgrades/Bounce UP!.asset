@@ -16,3 +16,5 @@ MonoBehaviour:
   Name: Bounce UP!
   statType: bounce
   amount: 1
+  Rarity: 24
+  upgradePic: {fileID: 0}

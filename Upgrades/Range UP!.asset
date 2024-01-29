@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: Range UP!
   statType: range
   amount: 0.25
-  Rarity: 4
+  Rarity: 48
   upgradePic: {fileID: 0}

@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: Damage UP!
   statType: damage
   amount: 5
-  Rarity: 2
+  Rarity: 24
   upgradePic: {fileID: 0}
