@@ -26,6 +26,7 @@ public class ValueScript : MonoBehaviour
     public AudioClip upgradeNoise;
     public AudioClip levelUpSound;
     public DrunkBarScript drunkScript;
+    public LevelTextScript levelText;
 
     // Initsialisering av lister, som lagrer oppgraderinger du velger, og vilke du har tatt
     public List<UpgradeData> Upgrades;
@@ -68,11 +69,12 @@ public class ValueScript : MonoBehaviour
         {
             currentHealth += 0.5f * Time.deltaTime;
         }
-
+    
 
         //Kaller en funksjon som sjekker om du er død, og om du har nokk XP til å levele opp
         endGame();
         levelUp();
+        levelText.ChangeText();
 
         // skifter HP teksten
         hpText.text.text = hpText.ChangeCurrent(currentHealth) + "/" + hpText.ChangeMax(maxHealth);

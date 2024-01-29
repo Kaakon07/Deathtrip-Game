@@ -13,11 +13,11 @@ public class LevelTextScript : MonoBehaviour
     void Start()
     {
         // skifter "Level" teksten på start
-        text.text = "Level " + script.Level.ToString();
+        ChangeText();
     }
 
     // Update is called once per frame
-    void Update()
+    public void ChangeText()
     {
         // skifter teksten konstant
         text.text = "Level " + script.Level.ToString();
