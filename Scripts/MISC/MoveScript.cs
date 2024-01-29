@@ -10,8 +10,8 @@ public class MoveScript : MonoBehaviour
     public ValueScript script;
 
     // Variabler for vilken direksjon på keyboardet ditt du trykker
-    float horizontal;
-    float vertical;
+    public float horizontal;
+    public float vertical;
 
     // Bevegles hastighet og en referance til objektets rigidbody
     public float MoveSpeed;
