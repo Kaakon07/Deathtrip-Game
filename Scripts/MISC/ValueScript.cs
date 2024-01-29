@@ -301,13 +301,6 @@ I’m homicidal, and I’ve got a taste
 I want to wipe out the Monster race
 I’ve got no patience, got no resolve
 I will slaughter, screw the dialogue
-You might also like
-HISS
-Megan Thee Stallion
-Five Nights at Freddy’s 3: The Musical
-​​lhugueny
-Think U The Shit (Fart)
-Ice Spice
 [Bridge]
 I fell from the light
 Talk? Or should I fight?
