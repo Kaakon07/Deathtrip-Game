@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: Health UP!
   statType: health
   amount: 15
-  Rarity: 96
+  Rarity: 50
   upgradePic: {fileID: 0}

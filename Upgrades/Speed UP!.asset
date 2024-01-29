@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: Speed Upgrade
   statType: speed
   amount: 2
-  Rarity: 96
+  Rarity: 50
   upgradePic: {fileID: 0}
