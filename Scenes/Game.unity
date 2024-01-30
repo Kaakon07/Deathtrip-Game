@@ -4218,8 +4218,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 06bc2ac921e39ac46bd778b63f2487ca, type: 2}
   - {fileID: 11400000, guid: bae5723b3d0969d478073bed8eba1a2e, type: 2}
   - {fileID: 11400000, guid: 9bed9d64d250ecf4bab230f14828ba72, type: 2}
-  - {fileID: 11400000, guid: d675dd92719f3894bb388560fd95d19b, type: 2}
   - {fileID: 11400000, guid: 4a40f5ca48cb4a442a729f1be338d9eb, type: 2}
+  - {fileID: 11400000, guid: d675dd92719f3894bb388560fd95d19b, type: 2}
   acquiredUpgrades: []
   getUpgrade: []
 --- !u!114 &1215105983
@@ -4404,6 +4404,7 @@ MonoBehaviour:
   pierce: 0
   bounce: 0
   shots: 1
+  explode: 0
 --- !u!82 &1215105989
 AudioSource:
   m_ObjectHideFlags: 0

@@ -131,7 +131,16 @@ public class ValueScript : MonoBehaviour
         // tar vekk oppgraderingen fra oppgraderinger du kan få
         if (upgradeData.upgradeType == UpgradeType.BulletUpgrade)
         {
-            Upgrades.Remove(upgradeData);
+            upgradeData.Rarity = 0;
+            if (shooterScript.explode == false)
+            {
+                if (upgradeData.Name == "Rocket")
+                {
+                    shooterScript.explode = true;
+                }
+            }
+            
+
 
         }
         else
@@ -261,6 +270,8 @@ public class ValueScript : MonoBehaviour
 
 
 
+        
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("alchohol"))
