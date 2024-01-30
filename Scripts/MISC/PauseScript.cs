@@ -6,6 +6,7 @@ public class PauseScript : MonoBehaviour
 {
     // referanse for å stoppe spilelt fra å kjøre når du er i oppgraderingsmenyen
     public GameObject upgradeScreen;
+    public GameObject settingsScreen;
 
 
     // Bool som sjekker om spillet er pauset allerede
@@ -26,6 +27,7 @@ public class PauseScript : MonoBehaviour
     public void UnPause()
     {
         gameObject.SetActive(false);
+        settingsScreen.SetActive(false);
         Time.timeScale = 1;
         Paused = false;
     }

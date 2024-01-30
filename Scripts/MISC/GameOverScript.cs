@@ -13,7 +13,7 @@ public class GameOverScript : MonoBehaviour
     // Viser game over skjermen
     public void Setup()
     {
-        mixer.SetFloat("gameVolume", -80);
+        Time.timeScale = 0f;
         gameObject.SetActive(true);
         
     }

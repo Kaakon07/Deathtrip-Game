@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
         {
             enemySpawner();
         }
-        mixer.SetFloat("gameVolume", 0);
+        
         Time.timeScale = 1.0f;
 
     }
