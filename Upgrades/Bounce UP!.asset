@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: bounce
   amount: 1
   Rarity: 24
+  amountLimit: 4
   upgradePic: {fileID: 0}

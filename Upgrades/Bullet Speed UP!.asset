@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: bulletspeed
   amount: 40
   Rarity: 48
+  amountLimit: 12
   upgradePic: {fileID: 0}

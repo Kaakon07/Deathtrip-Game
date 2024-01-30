@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: health
   amount: 15
   Rarity: 50
+  amountLimit: 32
   upgradePic: {fileID: 0}

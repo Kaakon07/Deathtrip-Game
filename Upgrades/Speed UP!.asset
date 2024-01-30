@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: speed
   amount: 2
   Rarity: 50
+  amountLimit: 8
   upgradePic: {fileID: 0}

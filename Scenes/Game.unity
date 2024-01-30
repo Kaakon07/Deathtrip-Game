@@ -4397,7 +4397,7 @@ MonoBehaviour:
   firePoint: {fileID: 528024348}
   shootSound: {fileID: 8300000, guid: 9fbb265715cb24a448d4588805244f29, type: 3}
   aSource: {fileID: 1215105989}
-  FireSpeed: 15
+  FireSpeed: 120
   BulletSpeed: 625
   Damage: 10
   range: 2

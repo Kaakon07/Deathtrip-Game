@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: shots
   amount: 1
   Rarity: 16
+  amountLimit: 4
   upgradePic: {fileID: 0}

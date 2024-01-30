@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: damage
   amount: 5
   Rarity: 24
+  amountLimit: 16
   upgradePic: {fileID: 0}

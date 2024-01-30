@@ -146,6 +146,6 @@ MonoBehaviour:
   xpPickup: {fileID: 8300000, guid: 6ff56699c63d0534db70c8925d1fd451, type: 3}
   xpOrbNext: {fileID: 2391687498511756407, guid: 1bef86e6410d359418c3d80239670acc, type: 3}
   autoRange: 10
-  xpAmount: 40
+  xpAmount: 80
   orbType: 1
   orbID: 0

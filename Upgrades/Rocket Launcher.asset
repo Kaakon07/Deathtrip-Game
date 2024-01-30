@@ -17,4 +17,5 @@ MonoBehaviour:
   statType: firespeed
   amount: -250
   Rarity: 0
+  amountLimit: 1
   upgradePic: {fileID: 0}

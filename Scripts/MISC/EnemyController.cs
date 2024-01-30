@@ -102,20 +102,20 @@ public class EnemyController : MonoBehaviour
         // hvis fiended har helse av 0 eller mindre, forsvinner den og lager en XP orb
         if (health <= 0)
         {
-            int xpOrbSpawn = (int)gameControl.DiffLevel + 1;
-            for (int i = 0; i < (xpOrbSpawn & 1); i++)
+            int xpOrbSpawn = (int)gameControl.DiffLevel + 1; // How much xp/20 to spawn
+            for (int i = 0; i < (xpOrbSpawn & 3); i++) // How many small xp orbs to spawn
             {
                 Vector3 randomVals = new Vector3(Random.value, Random.value, 0);
                 Instantiate(XpOrb0, transform.position + randomVals, transform.rotation);
             }
 
-            for (int i = 0; i < (xpOrbSpawn >> 1 & 1); i++)
+            for (int i = 0; i < (xpOrbSpawn >> 2 & 3); i++) // How many medium xp orbs to spawn
             {
                 Vector3 randomVals = new Vector3(Random.value, Random.value, 0);
                 Instantiate(XpOrb1, transform.position + randomVals, transform.rotation);
             }
 
-            for (int i = 0; i < (xpOrbSpawn >> 2); i++)
+            for (int i = 0; i < (xpOrbSpawn >> 4); i++) // How many large xp orbs to spawn
             {
                 Vector3 randomVals = new Vector3(Random.value, Random.value, 0);
                 Instantiate(XpOrb2, transform.position + randomVals, transform.rotation);

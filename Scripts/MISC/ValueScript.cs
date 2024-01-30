@@ -48,9 +48,10 @@ public class ValueScript : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
         // En kalkulasjon som kalkulerer hvor mye XP du trenger for og levle opp, basert på ditt level
-        maxExp = Mathf.Round(100 * Mathf.Pow(2,Level/8));
+        //maxExp = Mathf.Round(100 * Mathf.Pow(2,Level/8));
+        maxExp = 62.5f * Mathf.Round(8+8*Mathf.Pow(Level, 1/2.718281828904590f));
 
-        
+
 
 
     }
@@ -59,10 +60,10 @@ public class ValueScript : MonoBehaviour
     void Update()
     {
         // bruker kalkulasjonen nevnet tidligere til å konstant sette max XP verdien, så den går opp med ditt level
-        maxExp = 100 * Mathf.Pow(2, Level / 8);
+        maxExp = 12.5f * Mathf.Round(8 + 8 * Mathf.Pow(Level, 1 / 2.718281828904590f)); // 100 * Mathf.Pow(2, Level / 8)
 
         // skifter konstant maxHp og maxXP til hp baren og xp baren
-        
+
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
         if (currentHealth < maxHealth)
@@ -128,6 +129,7 @@ public class ValueScript : MonoBehaviour
         // Legger till oppgradering du valgte til oppgraderinger du har
         acquiredUpgrades.Add(upgradeData);
         aSource.PlayOneShot(upgradeNoise);
+
         // tar vekk oppgraderingen fra oppgraderinger du kan få
         if (upgradeData.upgradeType == UpgradeType.BulletUpgrade)
         {
