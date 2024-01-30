@@ -28,6 +28,7 @@ public class ShooterScript : MonoBehaviour
     public int pierce = 0;
     public int bounce = 0;
     public int shots = 1;
+    public bool explode = false;
 
  
 
@@ -66,7 +67,7 @@ public class ShooterScript : MonoBehaviour
     private void Fire()
     {
 
-        Quaternion newRot = firePoint.rotation;
+        
         int spread = 10;
         // hvor ofte bilen skyter
         if (timer < FireSpeed)

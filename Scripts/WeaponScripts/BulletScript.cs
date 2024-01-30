@@ -69,14 +69,19 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            //if (ShootScript.explode == true)
-            //{
-            //    Instantiate(explode);
-            //}
+
         }
+    }*/
+
+    public void Explode(Vector2 pos, Quaternion rot)
+    {
+       
+       Instantiate(explode, pos, rot);
+       Debug.Log("Explode");
+        
     }
 }

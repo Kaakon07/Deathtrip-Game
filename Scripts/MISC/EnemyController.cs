@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color baseColor;
     public GameObject drunk;
+    private ShooterScript shooterScript;
+
 
     // Timer
     private float timer = 0;
@@ -59,6 +61,8 @@ public class EnemyController : MonoBehaviour
         playerCollider = Player.GetComponent<Collider2D>();
         enemyCollider = GetComponent<Collider2D>();
         HealthScript = Player.GetComponent<ValueScript>();
+        shooterScript = Player.GetComponent<ShooterScript>();
+        
 
         // base farge
         baseColor = spriteRenderer.color;
@@ -128,9 +132,15 @@ public class EnemyController : MonoBehaviour
         {
             BulletScript bulletScript = collision.gameObject.GetComponent<BulletScript>();
             // sjekker om den har allerede gjor skade
-            if (bulletScript.dealtDmg == false)
+            if (bulletScript.dealtDmg == false )
             {
                 EnemyDamage(bulletScript.Damage);
+                
+                if (shooterScript.explode == true) 
+                {
+                    bulletScript.Explode(collision.transform.position,collision.transform.rotation);
+                }
+                
                 FlashRed();
             }
             bulletScript.dealtDmg = true;
@@ -143,9 +153,21 @@ public class EnemyController : MonoBehaviour
             else
             {
                 // ødelegger skuddet
+                
                 Destroy(collision.gameObject);
             }
             
+        }
+
+        if (collision.gameObject.CompareTag("Explosion"))
+        {
+            ExplodeScript explodeScript = collision.gameObject.GetComponent<ExplodeScript>();
+            if(explodeScript.dealtDamage == false) 
+            {
+                EnemyDamage(shooterScript.Damage * 0.25f);
+                explodeScript.dealtDamage = true;
+            }
+
         }
     }
 

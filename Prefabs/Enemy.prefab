@@ -106,6 +106,7 @@ MonoBehaviour:
   damage: 20
   XpOrb: {fileID: 2391687498511756407, guid: 5db58995da437134284971fb32fd3c40, type: 3}
   drunk: {fileID: 3694467449657336486, guid: ba369b28487e9164da887d317e58c99f, type: 3}
+  bullet: {fileID: 8485965055817434026, guid: 101afbb7faa634c47be848d01e88b8b0, type: 3}
   deathClip: {fileID: 8300000, guid: d5883559e512f334aaffb0976d9c1a1f, type: 3}
   damageToPlayer: {fileID: 8300000, guid: 0fa258c1b32631142a2e0b505bc241e1, type: 3}
 --- !u!61 &1783317436927859846
