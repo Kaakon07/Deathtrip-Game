@@ -133,7 +133,7 @@ public class ProceduralTilemap : MonoBehaviour
 
         if (checkTileMoved()) // Checks if the player has moved into a new tile
         {
-            Debug.Log("Player entered a new tile!"); // Prints a message when the player moves into a new tile
+            //Debug.Log("Player entered a new tile!"); // Prints a message when the player moves into a new tile
 
             // Generates chunks from (-1, -1) to (1, -1)
             checkChunkAndGenerate(playerPos + new Vector3(-32, -32, 0) );

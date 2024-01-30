@@ -96,16 +96,17 @@ public class EnemyController : MonoBehaviour
         // hvis fiended har helse av 0 eller mindre, forsvinner den og lager en XP orb
         if (health <= 0)
         {
-            for (int i = 0; i < gameControl.DiffLevel+1; i++) 
+            int xpOrbSpawn = (int)gameControl.DiffLevel + 1;
+            for (int i = 0; i < xpOrbSpawn; i++) 
             {
                 Vector3 randomVals = new Vector3(Random.value,Random.value,0);
                 Instantiate(XpOrb, transform.position + randomVals, transform.rotation);
-                Instantiate(drunk,transform.position, transform.rotation);
-                aSource.PlayOneShot(deathClip,0.5f);
-                gameControl.enemiesKilled += 1;
-                Destroy(gameObject);
             }
-            
+            aSource.PlayOneShot(deathClip, 0.5f);
+            gameControl.enemiesKilled += 1;
+            Instantiate(drunk, transform.position, transform.rotation);
+            Destroy(gameObject);
+
         }
 
 

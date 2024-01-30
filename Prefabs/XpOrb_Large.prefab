@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4622055049126066126}
   - component: {fileID: 1174249175767668883}
   m_Layer: 0
-  m_Name: XpOrb
+  m_Name: XpOrb_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07073bc494f1cb94c8065f2eb8d67488, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3301f67828db47d4c88bc921519b7622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3772812, y: 0.3875215}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
 --- !u!114 &1174249175767668883
 MonoBehaviour:
@@ -144,4 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpPickup: {fileID: 8300000, guid: 6ff56699c63d0534db70c8925d1fd451, type: 3}
+  xpOrbNext: {fileID: 0}
   autoRange: 10
+  xpAmount: 80
+  orbType: 2
+  orbID: 0

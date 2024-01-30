@@ -23,6 +23,17 @@ public class LibraryRandom : MonoBehaviour
         return Random.value;
     }
 
+
+
+    public int random32Bit(int randSeed)
+    {
+        Random.InitState(randSeed);
+        randTemp = (int)Random.value;
+        return (int)(Random.value*0xFFFFFFFF) ;
+    }
+
+
+
     public Vector2 randomVector2FromVector2(Vector2Int randSeed)
     {
 

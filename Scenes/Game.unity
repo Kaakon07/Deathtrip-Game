@@ -4397,7 +4397,7 @@ MonoBehaviour:
   firePoint: {fileID: 528024348}
   shootSound: {fileID: 8300000, guid: 9fbb265715cb24a448d4588805244f29, type: 3}
   aSource: {fileID: 1215105989}
-  FireSpeed: 120
+  FireSpeed: 15
   BulletSpeed: 625
   Damage: 10
   range: 2
@@ -6687,7 +6687,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -312997397
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

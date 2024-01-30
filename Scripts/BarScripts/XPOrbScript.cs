@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -12,14 +13,19 @@ public class XPOrbScript : MonoBehaviour
     private Collider2D playerCollider;
     private AudioSource playerAudioSource;
     public AudioClip xpPickup;
+    public GameObject xpOrbNext;
 
     // Private variables
     private float xpDistance;
 
-    // hvor nerme den begynner å følge etter deg
-    public float autoRange = 10f;
+    // Public variables
+    public float autoRange = 10f; // hvor nerme den begynner å følge etter deg
+    public float xpAmount;
+    public int orbType;
+    public int orbID;
 
-    // Start is called before the first frame update
+
+
     void Start()
     {
         // definerer referansene, fordi det er en prefab
@@ -30,7 +36,8 @@ public class XPOrbScript : MonoBehaviour
         orbCollider = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
         xpDistance = Vector3.Distance(Player.transform.position, transform.position);
@@ -40,9 +47,32 @@ public class XPOrbScript : MonoBehaviour
         // hvis den rører spilleren, gir den XP
         if (orbCollider.IsTouching(playerCollider))
         {
-            ValueScript.GiveXp(20);
+            ValueScript.GiveXp(xpAmount);
             playerAudioSource.PlayOneShot(xpPickup, 0.5f);
             Destroy(gameObject);
         }
     }
+
+
+
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("Orb collision");
+    //
+    //    GameObject collidedObject = collision.collider.gameObject;
+    //
+    //    XPOrbScript xpScript = collidedObject.GetComponent<XPOrbScript>();
+    //    if (xpScript != null)
+    //    {
+    //        Debug.Log("2 Orbs collided");
+    //        if (xpScript.orbType == orbType)
+    //        {
+    //            Debug.Log("Orbs merged");
+    //            Instantiate(xpOrbNext, transform.position, transform.rotation);
+    //            Destroy(collidedObject);
+    //            //isMerged = true;
+    //            Destroy(gameObject);
+    //        }
+    //    }
+    //}
 }
