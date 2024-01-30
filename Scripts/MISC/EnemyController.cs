@@ -25,12 +25,14 @@ public class EnemyController : MonoBehaviour
     private ValueScript HealthScript;
     private Transform target;
     private Rigidbody2D rb;
-    public GameObject XpOrb;
     private GameObject Controller;
     private GameController gameControl;
     private SpriteRenderer spriteRenderer;
     private Color baseColor;
     public GameObject drunk;
+    public GameObject XpOrb0;
+    public GameObject XpOrb1;
+    public GameObject XpOrb2;
 
     // Timer
     private float timer = 0;
@@ -97,11 +99,25 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             int xpOrbSpawn = (int)gameControl.DiffLevel + 1;
-            for (int i = 0; i < xpOrbSpawn; i++) 
+            for (int i = 0; i < (xpOrbSpawn & 1); i++)
             {
-                Vector3 randomVals = new Vector3(Random.value,Random.value,0);
-                Instantiate(XpOrb, transform.position + randomVals, transform.rotation);
+                Vector3 randomVals = new Vector3(Random.value, Random.value, 0);
+                Instantiate(XpOrb0, transform.position + randomVals, transform.rotation);
             }
+
+            for (int i = 0; i < (xpOrbSpawn >> 1 & 1); i++)
+            {
+                Vector3 randomVals = new Vector3(Random.value, Random.value, 0);
+                Instantiate(XpOrb1, transform.position + randomVals, transform.rotation);
+            }
+
+            for (int i = 0; i < (xpOrbSpawn >> 2); i++)
+            {
+                Vector3 randomVals = new Vector3(Random.value, Random.value, 0);
+                Instantiate(XpOrb2, transform.position + randomVals, transform.rotation);
+            }
+
+
             aSource.PlayOneShot(deathClip, 0.5f);
             gameControl.enemiesKilled += 1;
             Instantiate(drunk, transform.position, transform.rotation);
