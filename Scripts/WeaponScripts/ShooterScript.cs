@@ -68,7 +68,7 @@ public class ShooterScript : MonoBehaviour
     {
 
         
-        int spread = 10;
+        int spread = 8; //spread = (int)( 10/(Mathf.Abs(shots) + 1) ) + 5
         // hvor ofte bilen skyter
         if (timer < FireSpeed)
         {
