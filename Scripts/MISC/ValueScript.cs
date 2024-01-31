@@ -60,7 +60,7 @@ public class ValueScript : MonoBehaviour
     void Update()
     {
         // bruker kalkulasjonen nevnet tidligere til å konstant sette max XP verdien, så den går opp med ditt level
-        maxExp = 12.5f * Mathf.Round(8 + 8 * Mathf.Pow(Level, 1 / 2.718281828904590f)); // 100 * Mathf.Pow(2, Level / 8)
+        maxExp = 12.5f * Mathf.Round(8 + 8 * Mathf.Pow(Level, 0.36787944111f));
 
         // skifter konstant maxHp og maxXP til hp baren og xp baren
 
