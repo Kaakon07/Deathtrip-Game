@@ -182,6 +182,7 @@ public class EnemyController : MonoBehaviour
             {
                 EnemyDamage(shooterScript.Damage * 0.25f);
                 explodeScript.dealtDamage = true;
+                FlashRed();
             }
 
         }
