@@ -18,4 +18,5 @@ MonoBehaviour:
   amount: -250
   Rarity: 0
   amountLimit: 1
+  description: Replaces projectiles with missiles.
   upgradePic: {fileID: 0}

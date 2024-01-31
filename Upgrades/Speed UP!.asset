@@ -18,4 +18,5 @@ MonoBehaviour:
   amount: 2
   Rarity: 50
   amountLimit: 8
+  description: Increases the player movement speed.
   upgradePic: {fileID: 0}

@@ -18,4 +18,5 @@ MonoBehaviour:
   amount: 1
   Rarity: 16
   amountLimit: 4
+  description: Increases amount of projectiles fired at once.
   upgradePic: {fileID: 0}

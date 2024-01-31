@@ -49,7 +49,8 @@ public class ValueScript : MonoBehaviour
 
         // En kalkulasjon som kalkulerer hvor mye XP du trenger for og levle opp, basert på ditt level
         //maxExp = Mathf.Round(100 * Mathf.Pow(2,Level/8));
-        maxExp = 62.5f * Mathf.Round(8+8*Mathf.Pow(Level, 1/2.718281828904590f));
+        //maxExp = 12.5f * Mathf.Round(8 + 8 * Mathf.Pow(Level, 0.36787944111f))
+        maxExp = 75 + Level*25;
 
 
 
@@ -60,7 +61,7 @@ public class ValueScript : MonoBehaviour
     void Update()
     {
         // bruker kalkulasjonen nevnet tidligere til å konstant sette max XP verdien, så den går opp med ditt level
-        maxExp = 12.5f * Mathf.Round(8 + 8 * Mathf.Pow(Level, 0.36787944111f));
+        maxExp = 75 + Level * 25;
 
         // skifter konstant maxHp og maxXP til hp baren og xp baren
 

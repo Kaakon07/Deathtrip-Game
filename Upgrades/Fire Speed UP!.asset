@@ -17,4 +17,6 @@ MonoBehaviour:
   statType: firespeed
   amount: -2.5
   Rarity: 32
-  upgradePic: {fileID: 0}
+  amountLimit: 32
+  description: Increases the projectile firerate.
+  upgradePic: {fileID: 21300000, guid: 13be9f5fd59141e40a450f540ac80cf3, type: 3}

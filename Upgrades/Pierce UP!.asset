@@ -17,4 +17,6 @@ MonoBehaviour:
   statType: pierce
   amount: 1
   Rarity: 28
+  amountLimit: 4
+  description: Causes projectiles to pierce through enemies.
   upgradePic: {fileID: 0}

@@ -18,4 +18,5 @@ MonoBehaviour:
   amount: 0.25
   Rarity: 48
   amountLimit: 12
+  description: Increases the despawn range for projectiles.
   upgradePic: {fileID: 0}

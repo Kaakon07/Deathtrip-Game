@@ -19,5 +19,6 @@ public class UpgradeData : ScriptableObject
     public float amount;
     public float Rarity;
     public int amountLimit;
+    public string description;
     public Sprite upgradePic;
 }
