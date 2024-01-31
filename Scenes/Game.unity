@@ -2349,6 +2349,10 @@ MonoBehaviour:
   - {fileID: 1193774615}
   - {fileID: 484419622}
   - {fileID: 1284882708}
+  upgradeDescription:
+  - {fileID: 1057614900}
+  - {fileID: 462258356}
+  - {fileID: 995681158}
   upgradeImage:
   - {fileID: 1595845305}
   - {fileID: 403667421}
@@ -2554,7 +2558,7 @@ GameObject:
   - component: {fileID: 462258352}
   - component: {fileID: 462258355}
   - component: {fileID: 462258354}
-  - component: {fileID: 462258353}
+  - component: {fileID: 462258356}
   m_Layer: 5
   m_Name: UpgradeDescription2
   m_TagString: Untagged
@@ -2581,19 +2585,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -72}
   m_SizeDelta: {x: 128, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &462258353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462258351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996a4722bc045604390aab6c5e090cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeText: {fileID: 462258354}
 --- !u!114 &462258354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2616,7 +2607,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 156b6adb7f787e746a96d717651079f8, type: 3}
-    m_FontSize: 8
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2626,7 +2617,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.5
   m_Text: Description 2
 --- !u!222 &462258355
 CanvasRenderer:
@@ -2636,6 +2627,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462258351}
   m_CullTransparentMesh: 1
+--- !u!114 &462258356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462258351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082ba47c5c975414ab628ae0f7ae2802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeDescription: {fileID: 462258354}
 --- !u!1 &471150419
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,7 +3607,7 @@ GameObject:
   - component: {fileID: 995681154}
   - component: {fileID: 995681157}
   - component: {fileID: 995681156}
-  - component: {fileID: 995681155}
+  - component: {fileID: 995681158}
   m_Layer: 5
   m_Name: UpgradeDescription3
   m_TagString: Untagged
@@ -3630,19 +3634,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -72}
   m_SizeDelta: {x: 128, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &995681155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995681153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996a4722bc045604390aab6c5e090cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeText: {fileID: 995681156}
 --- !u!114 &995681156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3665,7 +3656,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 156b6adb7f787e746a96d717651079f8, type: 3}
-    m_FontSize: 8
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3675,7 +3666,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.5
   m_Text: Description 3
 --- !u!222 &995681157
 CanvasRenderer:
@@ -3685,6 +3676,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995681153}
   m_CullTransparentMesh: 1
+--- !u!114 &995681158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995681153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082ba47c5c975414ab628ae0f7ae2802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeDescription: {fileID: 995681156}
 --- !u!1 &999213359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,7 +3833,7 @@ GameObject:
   - component: {fileID: 1057614896}
   - component: {fileID: 1057614899}
   - component: {fileID: 1057614898}
-  - component: {fileID: 1057614897}
+  - component: {fileID: 1057614900}
   m_Layer: 5
   m_Name: UpgradeDescription1
   m_TagString: Untagged
@@ -3856,19 +3860,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0, y: -72}
   m_SizeDelta: {x: 128, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1057614897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057614895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996a4722bc045604390aab6c5e090cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeText: {fileID: 1057614898}
 --- !u!114 &1057614898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3891,7 +3882,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 156b6adb7f787e746a96d717651079f8, type: 3}
-    m_FontSize: 8
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3901,7 +3892,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.5
   m_Text: Description 1
 --- !u!222 &1057614899
 CanvasRenderer:
@@ -3911,6 +3902,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057614895}
   m_CullTransparentMesh: 1
+--- !u!114 &1057614900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057614895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082ba47c5c975414ab628ae0f7ae2802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeDescription: {fileID: 1057614898}
 --- !u!1 &1065369045
 GameObject:
   m_ObjectHideFlags: 0

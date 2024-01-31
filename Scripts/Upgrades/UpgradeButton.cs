@@ -13,7 +13,7 @@ public class UpgradeButton : MonoBehaviour
 
 
     // Skifter texten til navnet på oppgradering som er valgt
-    public void SetText(UpgradeData upgradeData)
+    public void SetUpgradeText(UpgradeData upgradeData)
     {
         upgradeText.text = upgradeData.Name;
 

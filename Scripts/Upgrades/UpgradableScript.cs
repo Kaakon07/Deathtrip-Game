@@ -9,10 +9,12 @@ public class UpgradableScript : MonoBehaviour
     public BulletScript bulletScript;
     public ValueScript valueScript;
     public GameObject player;
-    
+
 
     // Lager en liste som du putter teksten du vill skifte i
     public List<UpgradeButton> upgradeText;
+
+    public List<UpgradeDescription> upgradeDescription;
 
     public List<UpgradeImage> upgradeImage;
 
@@ -37,11 +39,15 @@ public class UpgradableScript : MonoBehaviour
         // skifter teksten på oppgraderings menyen til vilken oppgradering den har valgt
         for (int i = 0; i < upgradeData.Count; i++)
         {
-            upgradeText[i].SetText(upgradeData[i]);
+            upgradeText[i].SetUpgradeText(upgradeData[i]);
         }
         for (int i = 0; i < upgradeData.Count; i++)
         {
             upgradeImage[i].SetImage(upgradeData[i]);
+        }
+        for (int i = 0; i < upgradeData.Count; i++)
+        {
+            upgradeDescription[i].SetDescriptionText(upgradeData[i]);
         }
 
 
