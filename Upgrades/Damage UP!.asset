@@ -19,4 +19,4 @@ MonoBehaviour:
   Rarity: 24
   amountLimit: 16
   description: Causes projectile to deal damage.
-  upgradePic: {fileID: 0}
+  upgradePic: {fileID: 21300000, guid: 0c55c3d2f1fab10489d112a7fd4d1955, type: 3}

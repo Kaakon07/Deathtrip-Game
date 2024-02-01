@@ -19,4 +19,4 @@ MonoBehaviour:
   Rarity: 28
   amountLimit: 4
   description: Causes projectiles to pierce through enemies.
-  upgradePic: {fileID: 0}
+  upgradePic: {fileID: 21300000, guid: d5f192a821a219e4abb8d655f28ae196, type: 3}
