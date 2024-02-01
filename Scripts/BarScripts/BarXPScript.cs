@@ -5,24 +5,28 @@ using UnityEngine.UI;
 
 public class BarXPScript : MonoBehaviour
 {
-    public GameObject xpBarUI;
-    public GameObject xpImageUI;
+    // References
+    public GameObject BarXpMask;
     public ValueScript valueScript;
 
+
+    private RectMask2D BarMask;
+
+
     float xpFloat;
-    // Start is called before the first frame update
+
+
+
     void Start()
     {
-        xpImageUI = GameObject.Find("BarImageXP");
-        Debug.Log(xpImageUI.transform.position.ToString());
+        BarMask = BarXpMask.GetComponent<RectMask2D>();
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
         xpFloat = valueScript.currentExp / valueScript.maxExp;
-        xpBarUI.transform.position = new Vector3(-199.28f + 398.56f * xpFloat, 914.12f, 0);
-        xpImageUI.transform.position = new Vector3(199.28f, 914.12f, 0);
-
+        BarMask.padding = new Vector4(0, 0, (1 - xpFloat) * 512, 0);
     }
 }
