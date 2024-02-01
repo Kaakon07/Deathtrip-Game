@@ -7,16 +7,19 @@ using UnityEngine.UI;
 public class DrunkBarScript : MonoBehaviour
 {
     //referanser
-    public Slider drunkSlider;
     // promille level
     public float Promille;
     public float totalPromille;
     public Vector4 distortionSpeed;
+    public GameObject BarDrunkMask;
     public GameObject distortionField;
     public Material distortionMaterial;
     public ValueScript valuescript;
     public MoveScript moveScript;
-    
+
+
+    private RectMask2D BarMask;
+
 
 
     // Start is called before the first frame update
@@ -26,6 +29,7 @@ public class DrunkBarScript : MonoBehaviour
         Promille = 0;
         totalPromille = 0;
         distortionMaterial = distortionField.GetComponent<SpriteRenderer>().material;
+        BarMask = BarDrunkMask.GetComponent<RectMask2D>();
 
     }
 
@@ -41,7 +45,7 @@ public class DrunkBarScript : MonoBehaviour
         {
             Promille = 0;
         }
-        drunkSlider.value = Promille;
+        BarMask.padding = new Vector4(0, 0, 0, (1 - Promille) * 512);
 
         // skifter på skjermen baser på hvor full du er
 
