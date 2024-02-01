@@ -274,8 +274,8 @@ public class ValueScript : MonoBehaviour
     {
         if (collision.CompareTag("alchohol"))
         {
-            drunkScript.Promille += 0.01f + (gameController.DiffLevel * 0.01f);
-            drunkScript.totalPromille += 0.01f;
+            drunkScript.Promille += Time.deltaTime * 0.5f * (gameController.DiffLevel+1);
+            drunkScript.totalPromille += Time.deltaTime * 0.5f;
             
         }
     }

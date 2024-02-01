@@ -62,8 +62,6 @@ public class DrunkBarScript : MonoBehaviour
             distortionMaterial.SetVector("DistortionPosition", distortionMaterial.GetVector("DistortionPosition") + distortionSpeed);
             distortionMaterial.SetVector("DistortionPower", new Vector4( (Mathf.Pow(2, Promille) - 1) * Promille, Mathf.Pow(2 * Promille, 4) / 64, 0f, 0f) );
             distortionField.SetActive(true);
-            Debug.Log(distortionMaterial.GetVector("DistortionPosition").ToString());
-            Debug.Log(distortionSpeed);
             moveScript.rb.velocity *= UnityEngine.Random.value;
 
         }
