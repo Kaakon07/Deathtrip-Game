@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public ValueScript vScript;
     public EnemyController enemyController;
     public DrunkBarScript drunkBar;
+    public AudioSource audioSource;
 
     // hvor langt unna enemies spawner
     private float minRange = 30f;

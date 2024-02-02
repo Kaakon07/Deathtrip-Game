@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: 1
   Name: Fire Speed UP!
   statType: firespeed
-  amount: -2.5
+  amount: -5
   Rarity: 32
   amountLimit: 32
   description: Increases the projectile firerate.

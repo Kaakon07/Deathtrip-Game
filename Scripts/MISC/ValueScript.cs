@@ -124,7 +124,7 @@ public class ValueScript : MonoBehaviour
 
         // Legger till oppgradering du valgte til oppgraderinger du har
         acquiredUpgrades.Add(upgradeData);
-        aSource.PlayOneShot(upgradeNoise);
+        aSource.PlayOneShot(upgradeNoise,0.3f);
 
         // tar vekk oppgraderingen fra oppgraderinger du kan få
         if (upgradeData.upgradeType == UpgradeType.BulletUpgrade)
