@@ -137,6 +137,11 @@ public class ValueScript : MonoBehaviour
                 if (upgradeData.Name == "Rocket")
                 {
                     shooterScript.explode = true;
+                    shooterScript.BulletSpeed -= 250;
+                    shooterScript.FireSpeed += 20;
+
+
+                    
                 }
             }
             
