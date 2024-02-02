@@ -49,6 +49,8 @@ public class ValueScript : MonoBehaviour
         //maxExp = 12.5f * Mathf.Round(8 + 8 * Mathf.Pow(Level, 0.36787944111f))
         maxExp = 75 + Level*25;
 
+        Upgrades[9].Rarity = 1;
+
 
 
 
