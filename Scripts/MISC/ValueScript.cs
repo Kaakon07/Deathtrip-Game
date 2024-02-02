@@ -248,6 +248,7 @@ public class ValueScript : MonoBehaviour
             else if (getUpgrade[i].statType == "health")
             {
                 maxHealth += getUpgrade[i].amount;
+                currentHealth += getUpgrade[i].amount;
                 getUpgrade.Remove(getUpgrade[i]);
             }
             else if (getUpgrade[i].statType == "firespeed")

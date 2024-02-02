@@ -20,3 +20,4 @@ MonoBehaviour:
   amountLimit: 12
   description: Increases the despawn range for projectiles.
   upgradePic: {fileID: 21300000, guid: 0647b882bffeae341bf1e5593a1a5419, type: 3}
+  amountCollected: 0

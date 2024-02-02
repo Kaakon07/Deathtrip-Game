@@ -16,7 +16,8 @@ MonoBehaviour:
   Name: Rocket
   statType: firespeed
   amount: -250
-  Rarity: 1
+  Rarity: 3
   amountLimit: 1
   description: Replaces projectiles with missiles. Lowers firing speed.
   upgradePic: {fileID: 21300000, guid: 8f104ccd07277f74e837b8485d7feb19, type: 3}
+  amountCollected: 0

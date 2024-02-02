@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletScript : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class BulletScript : MonoBehaviour
     public float range;
     public int pierce;
     public int bounce;
+    public bool isRocket;
+
+
+    //Sprites
+    public SpriteRenderer spriteRenderer;
+    public Sprite spriteBullet;
+    public Sprite spriteRocket;
+
 
     // om den har gjort skade eller ikke
     public bool dealtDmg = false;
@@ -33,7 +42,14 @@ public class BulletScript : MonoBehaviour
         pierce = ShootScript.pierce;
         bounce = ShootScript.bounce;
 
-        
+        if (isRocket)
+        {
+            spriteRenderer.sprite = spriteRocket;
+        }
+        else
+        {
+            spriteRenderer.sprite = spriteBullet;
+        }
 
     }
 

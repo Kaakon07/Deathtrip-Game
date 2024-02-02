@@ -99,6 +99,7 @@ public class ShooterScript : MonoBehaviour
                 GameObject bulletClone = Instantiate(bullet, firePoint.transform.position, bulletRotation);
                 aSource.PlayOneShot(shootSound);
                 bulletClone.GetComponent<Rigidbody2D>().velocity = BulletSpeed * newDirection * Time.deltaTime;
+                bulletClone.GetComponent<BulletScript>().isRocket = explode;
             }
 
 

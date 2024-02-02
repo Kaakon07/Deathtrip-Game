@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4603da8be5683b143b735ea6f22db4b3, type: 3}
-  m_Name: Shots up!
+  m_Name: Shots UP!
   m_EditorClassIdentifier: 
   upgradeType: 1
-  Name: Shots up!
+  Name: Shots UP!
   statType: shots
   amount: 1
   Rarity: 16
   amountLimit: 4
   description: Increases amount of projectiles fired at once.
   upgradePic: {fileID: 21300000, guid: c18c22b4564433c4a816fc753602065f, type: 3}
+  amountCollected: 0
