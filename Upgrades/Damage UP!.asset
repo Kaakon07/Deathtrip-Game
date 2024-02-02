@@ -17,6 +17,7 @@ MonoBehaviour:
   statType: damage
   amount: 5
   Rarity: 24
-  amountLimit: -1
+  amountLimit: 9999
   description: Causes projectile to deal damage.
   upgradePic: {fileID: 21300000, guid: 0c55c3d2f1fab10489d112a7fd4d1955, type: 3}
+  amountCollected: 2

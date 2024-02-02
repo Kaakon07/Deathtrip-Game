@@ -21,4 +21,5 @@ public class UpgradeData : ScriptableObject
     public int amountLimit;
     public string description;
     public Sprite upgradePic;
+    public int amountCollected;
 }

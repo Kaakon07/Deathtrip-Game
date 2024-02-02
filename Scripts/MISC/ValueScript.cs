@@ -167,6 +167,11 @@ public class ValueScript : MonoBehaviour
         currentExp += xp;
     }
 
+    public void addLevel()
+    {
+        currentExp += maxExp;
+    }
+
     // slutter spillet, viser game over skjermen ved å sjekke om du er under 1 hp
     public void endGame()
     {
@@ -210,12 +215,22 @@ public class ValueScript : MonoBehaviour
         }
 
         // legger til en tilfeldig oppgradering til de du kan få
-        Debug.Log(findUpgradeRaritySum().ToString());
+        //Debug.Log(findUpgradeRaritySum().ToString());
         for (int i = 0; i < count; i++)
         {
-            upgradeList.Add(Upgrades[findUpgradeFromIndex(Random.Range(0, findUpgradeRaritySum()))]); //Random.Range(0, Upgrades.Count)
+            //float upgradeSum = findUpgradeRaritySum();
+            //int upgradeIndex = findUpgradeFromIndex(Random.Range(0, upgradeSum));
+            //while (Upgrades[upgradeIndex].amountCollected >= Upgrades[upgradeIndex].amountLimit)
+            //{
+            //    Upgrades[upgradeIndex].Rarity = 0;
+            //    upgradeIndex = findUpgradeFromIndex(Random.Range(0, upgradeSum));
+            //}
+            //upgradeList.Add(Upgrades[upgradeIndex]);
+            //Upgrades[upgradeIndex].amountCollected++;
+
+            upgradeList.Add(Upgrades[ findUpgradeFromIndex( Random.Range(0, findUpgradeRaritySum()) ) ] ); //Random.Range(0, Upgrades.Count)
         }
-        
+
         // returner upgradeList
         return upgradeList;
     }

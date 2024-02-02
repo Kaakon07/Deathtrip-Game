@@ -50,32 +50,24 @@ public class BulletScript : MonoBehaviour
 
         if (bounce > 0)
         {
-            if (bulletPos.x < playerPos.x - 27 | bulletPos.x > playerPos.x + 27) // 27 x 15.1875
+            if (bulletPos.x < playerPos.x - 29.972222f | bulletPos.x > playerPos.x + 29.972222f) //30.222222 x 17
             {
                 Debug.Log("bullet has hit the wall");
                 rb.velocity = new Vector2(0 - rb.velocity.x, rb.velocity.y);
-                rb.rotation = Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.y, rb.velocity.x) - 90;
+                rb.rotation = Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.y, rb.velocity.x);
                 bounce--;
                 dealtDmg = false;
             }
-            if (bulletPos.y < playerPos.y - 15.1875f | bulletPos.y > playerPos.y + 15.1875f) // 27 x 15.1875
+            if (bulletPos.y < playerPos.y - 16.75 | bulletPos.y > playerPos.y + 16.75)
             {
                 Debug.Log("bullet has hit the wall");
                 rb.velocity = new Vector2(rb.velocity.x, 0 - rb.velocity.y);
-                rb.rotation = Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.y, rb.velocity.x) - 90;
+                rb.rotation = Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.y, rb.velocity.x);
                 bounce--;
                 dealtDmg = false;
             }
         }
     }
-
-   /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-
-        }
-    }*/
 
     public void Explode(Vector2 pos, Quaternion rot)
     {
