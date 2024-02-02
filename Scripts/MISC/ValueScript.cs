@@ -136,6 +136,7 @@ public class ValueScript : MonoBehaviour
             {
                 if (upgradeData.Name == "Rocket")
                 {
+                    // Aktiverer rakett skudd
                     shooterScript.explode = true;
                     shooterScript.BulletSpeed -= 250;
                     shooterScript.FireSpeed += 20;
