@@ -19,7 +19,7 @@ public class RoadScript : MonoBehaviour
     void Update()
     {
         // sletter objektet når det er under -30 Y
-        if (transform.position.y < -30)
+        if (transform.position.y > 30)
         {
             Destroy(gameObject);
         }
